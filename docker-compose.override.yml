@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  ksu.market.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5050:80"
