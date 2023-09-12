@@ -1,18 +1,10 @@
-
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
-namespace Ksu.Market.Api
+namespace Ksu.Market.Products
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public class Program
 	{
-		/// <summary>
-		/// Точка входа в программу
-		/// </summary>
-		/// <param name="args"></param>
 		public static void Main(string[] args)
 		{
 			var host = CreateHostBuilder(args).Build();
@@ -20,11 +12,6 @@ namespace Ksu.Market.Api
 			host.Run();
 		}
 
-		/// <summary>
-		/// Настройка хоста
-		/// </summary>
-		/// <param name="args"></param>
-		/// <returns></returns>
 		public static IHostBuilder CreateHostBuilder(string[] args) =>
 			Host.CreateDefaultBuilder(args)
 				.UseSerilog((contxt, cfg) =>

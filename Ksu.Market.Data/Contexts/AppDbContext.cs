@@ -1,5 +1,6 @@
 ﻿using Ksu.Market.Data.Interfaces;
 using Ksu.Market.Domain.Models;
+using Ksu.Market.Domain.Results;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -13,21 +14,21 @@ namespace Ksu.Market.Data.Contexts
 	public class AppDbContext : DbContext, IAppDbContext
 	{
 		public DbSet<Product> Products { get; set; }
-		private readonly IConfiguration _configuration;
+		public DbSet<OperationResult> OperationResults { get; set; }
 
-		public AppDbContext(IConfiguration configuration)
+		public AppDbContext()
 		{
-			_configuration = configuration;
+			
 		}
 
-		public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration configuration) : base(options)
+		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 		{
-			_configuration = configuration;
+			
 		}
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			var conntextionString = _configuration.GetConnectionString("DefaultConnection");
+			var conntextionString = "Host=postgres;Port=5432;Database=postgres;Username=root;Password=root;";
 			optionsBuilder.UseNpgsql(conntextionString);
 		}
 	}

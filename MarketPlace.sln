@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Domain", "Ksu.Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Testing", "Ksu.Market.Testing\Ksu.Market.Testing.csproj", "{A36DB529-62F2-47AB-9E0D-5FCA6D388317}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Products", "Ksu.Market.Products\Ksu.Market.Products.csproj", "{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Infrastructure", "Ksu.Market.Infrastructure\Ksu.Market.Infrastructure.csproj", "{26209850-41AE-4989-8998-B2C38C4E23EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26209850-41AE-4989-8998-B2C38C4E23EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26209850-41AE-4989-8998-B2C38C4E23EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26209850-41AE-4989-8998-B2C38C4E23EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26209850-41AE-4989-8998-B2C38C4E23EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

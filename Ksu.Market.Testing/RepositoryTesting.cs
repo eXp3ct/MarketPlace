@@ -1,29 +1,32 @@
-using Ksu.Market.Api;
+﻿using Ksu.Market.Api;
 using Ksu.Market.Data.Contexts;
+using Ksu.Market.Data.Repositories;
 using Ksu.Market.Domain.Enums;
 using Ksu.Market.Domain.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Ksu.Market.Testing
 {
-	public class DbTesting
+	public class RepositoryTesting
 	{
 		private readonly TestServer _server;
 
-        public DbTesting()
+        public RepositoryTesting()
         {
 			_server = new TestServer(Program.CreateHostBuilder(Array.Empty<string>()).Build().Services);
-			
-        }
+		}
 
-        [Fact]
-		public void AddEntityToDb_NotNull()
+		[Fact]
+		public async Task AddProductToRepository_NotNull()
 		{
-			//Arrange
 			var context = new AppDbContext();
+			var repo = new ProductRepository(context);
+
 			var pId = Guid.NewGuid();
 			var fId = Guid.NewGuid();
 			var fId1 = Guid.NewGuid();
@@ -60,12 +63,10 @@ namespace Ksu.Market.Testing
 				}
 			};
 
-			//Act
-			context.Products.Add(product);
-			context.SaveChanges();
+			await repo.Create(product);
+			await context.SaveChangesAsync();
 
-			//Assert
-			var existingProduct = context.Products.Find(pId);
+			var existingProduct = await repo.GetByIdAsync(pId);
 
 			Assert.NotNull(existingProduct);
 			Assert.NotNull(existingProduct.Features);
@@ -79,10 +80,11 @@ namespace Ksu.Market.Testing
 		}
 
 		[Fact]
-		public void DeleteEntityFromDb_NotNull()
+		public async Task DeleteProduct_NotNull()
 		{
-			//Arrange
 			var context = new AppDbContext();
+			var repo = new ProductRepository(context);
+
 			var pId = Guid.NewGuid();
 			var fId = Guid.NewGuid();
 			var fId1 = Guid.NewGuid();
@@ -119,13 +121,11 @@ namespace Ksu.Market.Testing
 				}
 			};
 
-			//Act
-			context.Products.Add(product);
-			context.SaveChanges();
+			await repo.Create(product);
+			await context.SaveChangesAsync();
 
-			//Assert
-			var existingProduct = context.Products.Find(pId);
-			var deleted = context.Products.Remove(existingProduct).Entity;
+			var deleted = await repo.Delete(pId);
+			await context.SaveChangesAsync();
 
 			Assert.NotNull(deleted);
 			Assert.NotNull(deleted.Features);
@@ -137,5 +137,5 @@ namespace Ksu.Market.Testing
 			Assert.Equal(cId, deleted.Categories.First().Id);
 			Assert.Equal(cId1, deleted.Categories.Last().Id);
 		}
-	}
+    }
 }

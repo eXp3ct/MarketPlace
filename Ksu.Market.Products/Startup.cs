@@ -2,60 +2,33 @@
 using Ksu.Market.Domain.Models.Options;
 using Ksu.Market.Infrastructure;
 using MassTransit;
+using System.Reflection;
 
-namespace Ksu.Market.Api
+namespace Ksu.Market.Products
 {
-	/// <summary>
-	/// Конфигурация 
-	/// </summary>
 	public class Startup
 	{
 		private readonly IConfiguration _configuration;
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="configuration"></param>
+
 		public Startup(IConfiguration configuration)
 		{
 			_configuration = configuration;
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="app"></param>
-		/// <param name="env"></param>
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-		{
-			if (env.IsDevelopment())
-			{
-				app.UseSwagger();
-				app.UseSwaggerUI();
-			}
 
-			app.UseRouting();
-			app.UseAuthorization();
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapControllers();
-			});
+		public void Configure(IApplicationBuilder app)
+		{
+
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="services"></param>
-		/// <exception cref="InvalidOperationException"></exception>
+
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
-			services.AddEndpointsApiExplorer();
-			services.AddSwaggerGen();
 			services.AddPersistance();
 			services.AddInfrastructure();
-			SwaggerOptions.Configure(services);
 			services.AddMassTransit(cfg =>
 			{
 				cfg.SetKebabCaseEndpointNameFormatter();
 				cfg.AddDelayedMessageScheduler();
+				cfg.AddConsumers(Assembly.GetExecutingAssembly());
 				cfg.UsingRabbitMq((context, config) =>
 				{
 					var rabbitMqConfig = _configuration

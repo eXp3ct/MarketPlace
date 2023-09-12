@@ -39,9 +39,18 @@ services:
       - rabbitmq
     networks:
       - network
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development 
 
+
+  ksu.market.products:
+    container_name: market-products
+    image: ${DOCKER_REGISTRY-}ksumarketproducts
+    build:
+      context: .
+      dockerfile: Ksu.Market.Products/Dockerfile
+    depends_on:
+      - postgres
+    networks:
+      - network
 
 networks:
   network:
