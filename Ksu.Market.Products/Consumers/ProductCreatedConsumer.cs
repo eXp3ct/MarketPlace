@@ -22,7 +22,7 @@ namespace Ksu.Market.Products.Consumers
 		public async Task Consume(ConsumeContext<IProductCreated> context)
 		{
 			var query = new AddProductConsumingQuery(context.Message);
-			var result = await _mediator.Send(query);
+			var result = await _mediator.Send(query, context.CancellationToken);
 			await context.RespondAsync(result);
 		}
 	}

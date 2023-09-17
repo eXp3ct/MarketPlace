@@ -15,7 +15,9 @@ namespace Ksu.Market.Infrastructure.Mappings
         {
             CreateMap<IProductCreated, Product>()
                 .ForMember(p => p.Id, 
-                    opt => opt.MapFrom(x => Guid.NewGuid()));
+                    opt => opt.MapFrom(x => Guid.NewGuid()))
+                .ForMember(p => p.DateChanged, 
+                    opt => opt.MapFrom(x => DateTime.MinValue));
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Ksu.Market.Infrastructure.Behavior
 								.SelectMany(v => v.Errors)
 								.Where(failure => failure != null)
 								.ToList();
-
+			
 			if(failures.Any())
 			{
 				return Task.FromResult((TResponse)(object)new OperationResult(failures.Select(x => new
