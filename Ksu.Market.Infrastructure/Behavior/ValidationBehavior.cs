@@ -1,11 +1,6 @@
 ﻿using FluentValidation;
 using Ksu.Market.Domain.Results;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Infrastructure.Behavior
 {
@@ -27,8 +22,8 @@ namespace Ksu.Market.Infrastructure.Behavior
 								.SelectMany(v => v.Errors)
 								.Where(failure => failure != null)
 								.ToList();
-			
-			if(failures.Any())
+
+			if (failures.Any())
 			{
 				return Task.FromResult((TResponse)(object)new OperationResult(failures.Select(x => new
 				{

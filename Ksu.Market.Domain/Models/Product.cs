@@ -17,6 +17,6 @@ namespace Ksu.Market.Domain.Models
 		public List<Category>? Categories { get; set; }
 		public List<Feature>? Features { get; set; }
 		public DateTime DatePublished { get; set; }
-		public DateTime DateChanged { get; set; }
+		public DateTime? DateChanged { get; set; }
 	}
 }

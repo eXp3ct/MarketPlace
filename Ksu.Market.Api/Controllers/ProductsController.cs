@@ -1,9 +1,11 @@
-﻿using Ksu.Market.Domain.Contracts;
-using Ksu.Market.Domain.Dtos;
+﻿using Ksu.Market.Domain.Dtos;
 using Ksu.Market.Domain.Results;
 using Ksu.Market.Infrastructure.Commands.Producing.AddProduct;
+using Ksu.Market.Infrastructure.Commands.Producing.DeleteProduct;
+using Ksu.Market.Infrastructure.Commands.Producing.DeleteProducts;
 using Ksu.Market.Infrastructure.Commands.Producing.GetPagedList;
-using MassTransit;
+using Ksu.Market.Infrastructure.Commands.Producing.GetProduct;
+using Ksu.Market.Infrastructure.Commands.Producing.UpdateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -36,16 +38,18 @@ namespace Ksu.Market.Api.Controllers
 		/// </summary>
 		/// <param name="dto">Информация о продукте</param>
 		/// <param name="cancellationToken">Токен отмены</param>
-		/// <returns>Созданный продукт</returns>
+		/// <returns><see cref="IOperationResult"/>Созданный продукт</returns>
 		[HttpPost]
-		[ProducesDefaultResponseType(typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.Created, Type = typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(IOperationResult))]
+		[ProducesErrorResponseType(typeof(IOperationResult))]
 		public async Task<IActionResult> CreateProduct([FromBody] ProductDto dto, CancellationToken cancellationToken)
 		{
 			var result = await _mediator.Send(new AddProductProducingQuery(dto), cancellationToken);
 
 			if (result.IsSuccess)
 			{
-				return Created($"/{result.Id}", result); 
+				return Created($"/{result.Id}", result);
 			}
 
 			return BadRequest(result);
@@ -57,9 +61,11 @@ namespace Ksu.Market.Api.Controllers
 		/// <param name="page">Номер страницы</param>
 		/// <param name="pageSize">Размер страницы</param>
 		/// <param name="cancellationToken">Токен отмены</param>
-		/// <returns></returns>
+		/// <returns><see cref="IOperationResult"/>Список продуктов</returns>
 		[HttpGet]
-		[ProducesDefaultResponseType(typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(IOperationResult))]
+		[ProducesErrorResponseType(typeof(IOperationResult))]
 		public async Task<IActionResult> GetPagedList(int page, int pageSize, CancellationToken cancellationToken)
 		{
 			var result = await _mediator.Send(new GetPagedListProducingQuery(page, pageSize), cancellationToken);
@@ -70,6 +76,101 @@ namespace Ksu.Market.Api.Controllers
 			}
 
 			return BadRequest(result);
+		}
+
+		/// <summary>
+		/// Получение продукта
+		/// </summary>
+		/// <param name="id">Id продукта</param>
+		/// <param name="cancellationToken">Токен отмены</param>
+		/// <returns><see cref="IOperationResult"/>Продукт</returns>
+		[HttpGet]
+		[Route("{id}")]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(IOperationResult))]
+		[ProducesErrorResponseType(typeof(IOperationResult))]
+		public async Task<IActionResult> GetProductById([FromRoute] Guid id, CancellationToken cancellationToken)
+		{
+			var result = await _mediator.Send(new GetProductByIdProducingQuery(id), cancellationToken);
+
+			if (result.IsSuccess)
+			{
+				return Ok(result);
+			}
+
+			return NotFound(result);
+		}
+
+		/// <summary>
+		/// Обновление продукта
+		/// </summary>
+		/// <param name="id">Id продукта</param>
+		/// <param name="dto">Информация о продукте</param>
+		/// <param name="cancellationToken">Токен отмены</param>
+		/// <returns><see cref="IOperationResult"/>Обновленный продукт</returns>
+		[HttpPut]
+		[Route("{id}")]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(IOperationResult))]
+		[ProducesErrorResponseType(typeof(IOperationResult))]
+		public async Task<IActionResult> UpdateProduct([FromRoute] Guid id, [FromBody] UpdateProductDto dto, CancellationToken cancellationToken)
+		{
+			var query = new UpdateProductProducingQuery(id, dto);
+			var result = await _mediator.Send(query, cancellationToken);
+
+			if (result.IsSuccess)
+			{
+				return Ok(result);
+			}
+
+			return BadRequest(result);
+		}
+
+		/// <summary>
+		/// Удаление продукта из базы данных
+		/// </summary>
+		/// <param name="id">Id продукта</param>
+		/// <param name="cancellationToken">Токен отмены</param>
+		/// <returns><see cref="IOperationResult"/>Удаленный продукт</returns>
+		[HttpDelete]
+		[Route("{id}")]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(IOperationResult))]
+		[ProducesErrorResponseType(typeof(IOperationResult))]
+		public async Task<IActionResult> DeleteProduct([FromRoute] Guid id, CancellationToken cancellationToken)
+		{
+			var query = new DeleteProductProducingQuery(id);
+			var result = await _mediator.Send(query, cancellationToken);
+
+			if (result.IsSuccess)
+			{
+				return Ok(result);
+			}
+
+			return NotFound(result);
+		}
+
+		/// <summary>
+		/// Удаление продуктов из базы данных
+		/// </summary>
+		/// <param name="ids">Id продуктов</param>
+		/// <param name="cancellationToken">Токен отмены</param>
+		/// <returns><see cref="IOperationResult"/>Удаленные продукты</returns>
+		[HttpDelete]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
+		[ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(IOperationResult))]
+		[ProducesErrorResponseType(typeof(IOperationResult))]
+		public async Task<IActionResult> DeleteProducts([FromBody] IEnumerable<Guid> ids, CancellationToken cancellationToken)
+		{
+			var query = new DeleteProductsQuery(ids);
+			var result = await _mediator.Send(query, cancellationToken);
+
+			if (result.IsSuccess)
+			{
+				return Ok(result);
+			}
+
+			return NotFound(result);
 		}
 	}
 }

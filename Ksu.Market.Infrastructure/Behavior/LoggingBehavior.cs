@@ -1,13 +1,7 @@
 ﻿using Ksu.Market.Data.UnitOfWorks;
 using Ksu.Market.Domain.Results;
-using MassTransit;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Infrastructure.Behavior
 {
@@ -26,11 +20,12 @@ namespace Ksu.Market.Infrastructure.Behavior
 		{
 			var result = await next();
 
-			if(result is not OperationResult)
+			if (result is not OperationResult)
 				return result;
 
 			await _unitOfWork.OperationResultRepository.Create(result as OperationResult, cancellationToken);
 			await _unitOfWork.SaveChangesAsync(cancellationToken);
+
 			_logger.LogInformation($"Operation result {(result as OperationResult).Id} saved to database");
 			return (TResponse)(object)result;
 		}

@@ -29,8 +29,7 @@ namespace Ksu.Market.Data.Repositories
 
 		public async Task<Product> Delete(Guid id, CancellationToken canecllationToken = default)
 		{
-			var product = await _context.Products.FindAsync(new object?[] { id }, cancellationToken: canecllationToken)
-				?? throw new ArgumentException("Execption occured while finding entity to delete from database");
+			var product = await GetByIdAsync(id, canecllationToken);
 
 			var entry = _context.Products.Remove(product)
 				?? throw new ArgumentException("Exception occured while deleting entity from database");
@@ -39,7 +38,10 @@ namespace Ksu.Market.Data.Repositories
 		}
 		public async Task<Product> GetByIdAsync(Guid id, CancellationToken canecllationToken = default)
 		{
-			var entity = await _context.Products.FindAsync(new object?[] { id }, cancellationToken: canecllationToken)
+			var entity = await _context.Products
+				.Include(x => x.Categories)
+				.Include(x => x.Features)
+				.FirstOrDefaultAsync(x => x.Id == id, cancellationToken: canecllationToken)
 				?? throw new ArgumentException("Exception occured while finding entity from database");
 
 			return entity;
@@ -60,10 +62,12 @@ namespace Ksu.Market.Data.Repositories
 
 		public async Task<Product> Update(Guid id, Product entity, CancellationToken canecllationToken = default)
 		{
-			var product = await _context.Products.FindAsync(new object?[] { id }, cancellationToken: canecllationToken)
-				?? throw new ArgumentException("Exception occured while finding entity to update database");
+			var deleted = await Delete(id, canecllationToken);
 
-			product = entity;
+			//TODO: Костыль, убрать от сюда
+			entity.DatePublished = deleted.DatePublished;
+
+			var product = await Create(entity, canecllationToken);
 
 			return product;
 		}

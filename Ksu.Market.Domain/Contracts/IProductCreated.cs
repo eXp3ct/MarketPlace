@@ -16,7 +16,5 @@ namespace Ksu.Market.Domain.Contracts
 		public float Rating { get; set; }
 		public List<CategoryDto>? Categories { get; set; }
 		public List<FeatureDto>? Features { get; set; }
-		public DateTime DatePublished { get; set; }
-		public DateTime DateChanged { get; set; }
 	}	
 }

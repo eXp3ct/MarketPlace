@@ -141,5 +141,95 @@ namespace Ksu.Market.Testing
 			Assert.Equal(cId, existingProduct.Categories.First().Id);
 			Assert.Equal(cId1, existingProduct.Categories.Last().Id);
 		}
+
+		[Fact]
+		public async Task UpdateProduct_NotNull()
+		{
+			var context = new AppDbContext();
+			var repo = new ProductRepository(context);
+			var logs = new OperationResultRepository(context);
+			var unit = new UnitOfWork(context, repo, logs);
+
+			var pId = Guid.NewGuid();
+			var fId = Guid.NewGuid();
+			var fId1 = Guid.NewGuid();
+			var cId = Guid.NewGuid();
+			var cId1 = Guid.NewGuid();
+			var product = new Product
+			{
+				Id = pId,
+				Name = "TestProduct",
+				Description = "TestDescription",
+				Price = 123,
+				Rating = 4.5f,
+				DateChanged = DateTime.UtcNow,
+				DatePublished = DateTime.UtcNow,
+				Features = new List<Feature>
+				{
+					new Feature
+					{
+						Id = fId,
+						Name = "Weight",
+						Value = "325kg"
+					},
+					new Feature
+					{
+						Id = fId1,
+						Name = "Size",
+						Value = "2x2x2"
+					}
+				},
+				Categories = new List<Category>
+				{
+					new Category { Id = cId, Name = "Home", AgeRestriction = AgeRestriction.Teens},
+					new Category { Id = cId1, Name = "Tech", AgeRestriction = AgeRestriction.Adults}
+				}
+			};
+
+			await unit.ProductRepository.Create(product);
+			await unit.SaveChangesAsync();
+
+			var productToUpdate = new Product
+			{
+				Id = pId,
+				Name = "UPDATEDTEST",
+				Description = "UPDATEDTEST",
+				Price = 123456,
+				Rating = 2,
+				DateChanged = DateTime.UtcNow,
+				DatePublished = DateTime.UtcNow,
+				Features = new List<Feature>
+				{
+					new Feature
+					{
+						Id = Guid.NewGuid(),
+						Name = "UPDATEDTEST",
+						Value = "UPDATEDTEST"
+					},
+					new Feature
+					{
+						Id = Guid.NewGuid(),
+						Name = "UPDATEDTEST",
+						Value = "UPDATEDTEST"
+					}
+				},
+				Categories = new List<Category>
+				{
+					new Category { Id = Guid.NewGuid(), Name = "UPDATEDTEST", AgeRestriction = AgeRestriction.Teens},
+					new Category { Id = Guid.NewGuid(), Name = "UPDATEDTEST", AgeRestriction = AgeRestriction.Adults}
+				}
+			};
+
+			var updated = await unit.ProductRepository.Update(pId, productToUpdate);
+			await unit.SaveChangesAsync();
+
+			var updatedProduct = await unit.ProductRepository.GetByIdAsync(updated.Id);
+
+			Assert.NotNull(updatedProduct);
+			Assert.Equal(productToUpdate.Name, updatedProduct.Name);
+			Assert.Equal(productToUpdate.Description, updatedProduct.Description);
+			Assert.Equal(productToUpdate.Price, updatedProduct.Price);
+			Assert.Equal(productToUpdate.Rating, updatedProduct.Rating);
+		}
     }
 }
