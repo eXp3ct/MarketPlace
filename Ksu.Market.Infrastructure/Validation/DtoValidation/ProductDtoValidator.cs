@@ -12,7 +12,6 @@ namespace Ksu.Market.Infrastructure.Validation.DtoValidation
 			RuleFor(x => x.Categories).NotNull().NotEmpty().ForEach(x => x.SetValidator(new CategoryDtoValidator()));
 			RuleFor(x => x.Features).NotEmpty().NotNull().ForEach(x => x.SetValidator(new FeatureDtoValidator()));
 			RuleFor(x => x.Price).NotEmpty().NotNull().GreaterThan(0);
-			RuleFor(x => x.Rating).NotNull().GreaterThan(0).NotEmpty();
 		}
 	}
 }

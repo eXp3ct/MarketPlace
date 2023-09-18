@@ -25,7 +25,7 @@ namespace Ksu.Market.Api
 						Name = "Roman Veselov",
 						Url = new Uri("https://vk.com/exp3cted")
 					},
-					Description = "Controlling student schedule",
+					Description = "Market Place Controllers",
 					Version = "v1"
 				});
 

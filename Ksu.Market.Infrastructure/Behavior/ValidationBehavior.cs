@@ -8,6 +8,7 @@ namespace Ksu.Market.Infrastructure.Behavior
 		where TRequest : IRequest<TResponse>
 	{
 		private readonly IEnumerable<IValidator<TRequest>> _validators;
+		
 
 		public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
 		{
@@ -25,11 +26,7 @@ namespace Ksu.Market.Infrastructure.Behavior
 
 			if (failures.Any())
 			{
-				return Task.FromResult((TResponse)(object)new OperationResult(failures.Select(x => new
-				{
-					x.ErrorMessage,
-					x.AttemptedValue,
-				}), false));
+				throw new ValidationException(failures);
 			}
 
 			return next();

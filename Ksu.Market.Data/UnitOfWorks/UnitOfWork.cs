@@ -15,6 +15,7 @@ namespace Ksu.Market.Data.UnitOfWorks
 		private readonly IAppDbContext _context;
 		private IRepository<Product> _productRepository;
 		private IRepository<OperationResult> _operationResultRepository;
+		private IRepository<Review> _reviewRepository;
 		public IRepository<Product> ProductRepository
 		{
 			get
@@ -34,11 +35,25 @@ namespace Ksu.Market.Data.UnitOfWorks
 			}
 		}
 
-		public UnitOfWork(IAppDbContext context, IRepository<Product> productRepository, IRepository<OperationResult> operationResultRepository)
+		public IRepository<Review> ReviewRepository
+		{
+			get
+			{
+				_reviewRepository ??= new ReviewRepository(_context);
+
+				return _reviewRepository;
+			}
+		}
+
+		public UnitOfWork(IAppDbContext context, 
+			IRepository<Product> productRepository, 
+			IRepository<OperationResult> operationResultRepository, 
+			IRepository<Review> reviewRepository)
 		{
 			_context = context;
 			_productRepository = productRepository;
 			_operationResultRepository = operationResultRepository;
+			_reviewRepository = reviewRepository;
 		}
 
 		public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -57,6 +72,7 @@ namespace Ksu.Market.Data.UnitOfWorks
 					_context.Dispose();
 					_productRepository.Dispose();
 					_operationResultRepository.Dispose();
+					_reviewRepository.Dispose();
 				}
 			}
 			disposed = true;

@@ -13,6 +13,7 @@ namespace Ksu.Market.Data.Interfaces
 	{
 		public DbSet<Product> Products { get; set; }
 		public DbSet<OperationResult> OperationResults { get; set; }
+		public DbSet<Review> Reviews { get; set; }
 
 		public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 	}

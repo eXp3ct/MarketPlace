@@ -1,4 +1,5 @@
-﻿using Ksu.Market.Data;
+﻿using Ksu.Market.Api.Middlewares;
+using Ksu.Market.Data;
 using Ksu.Market.Domain.Models.Options;
 using Ksu.Market.Infrastructure;
 using MassTransit;
@@ -12,7 +13,7 @@ namespace Ksu.Market.Api
 	{
 		private readonly IConfiguration _configuration;
 		/// <summary>
-		/// 
+		/// Внедрение зависимостей
 		/// </summary>
 		/// <param name="configuration"></param>
 		public Startup(IConfiguration configuration)
@@ -20,7 +21,7 @@ namespace Ksu.Market.Api
 			_configuration = configuration;
 		}
 		/// <summary>
-		/// 
+		/// Конфигурация приложения
 		/// </summary>
 		/// <param name="app"></param>
 		/// <param name="env"></param>
@@ -31,7 +32,8 @@ namespace Ksu.Market.Api
 				app.UseSwagger();
 				app.UseSwaggerUI();
 			}
-
+			app.UseMiddleware<ErrorHandlingMiddleware>();
+			
 			app.UseRouting();
 			app.UseAuthorization();
 			app.UseEndpoints(endpoints =>
@@ -40,12 +42,13 @@ namespace Ksu.Market.Api
 			});
 		}
 		/// <summary>
-		/// 
+		/// Регистрация сервисов
 		/// </summary>
 		/// <param name="services"></param>
 		/// <exception cref="InvalidOperationException"></exception>
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddScoped<ErrorHandlingMiddleware>();
 			services.AddControllers();
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();

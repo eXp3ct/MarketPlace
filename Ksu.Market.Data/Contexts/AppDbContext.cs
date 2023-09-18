@@ -15,6 +15,7 @@ namespace Ksu.Market.Data.Contexts
 	{
 		public DbSet<Product> Products { get; set; }
 		public DbSet<OperationResult> OperationResults { get; set; }
+		public DbSet<Review> Reviews { get; set; }
 
 		public AppDbContext()
 		{
@@ -28,7 +29,7 @@ namespace Ksu.Market.Data.Contexts
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			var conntextionString = "Host=postgres;Port=5432;Database=postgres;Username=root;Password=root;";
+			var conntextionString = "Host=localhost;Port=5432;Database=postgres;Username=root;Password=root;";
 			optionsBuilder.UseNpgsql(conntextionString);
 		}
 	}
