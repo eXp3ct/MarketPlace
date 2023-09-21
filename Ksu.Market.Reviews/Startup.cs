@@ -17,7 +17,6 @@ namespace Ksu.Market.Reviews
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-
 		}
 
 		public void ConfigureServices(IServiceCollection services)

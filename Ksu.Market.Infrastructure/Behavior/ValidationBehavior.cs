@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Ksu.Market.Domain.Results;
 using MediatR;
 
 namespace Ksu.Market.Infrastructure.Behavior
@@ -8,7 +7,6 @@ namespace Ksu.Market.Infrastructure.Behavior
 		where TRequest : IRequest<TResponse>
 	{
 		private readonly IEnumerable<IValidator<TRequest>> _validators;
-		
 
 		public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
 		{

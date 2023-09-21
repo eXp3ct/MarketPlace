@@ -2,7 +2,6 @@
 using Ksu.Market.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System.Linq.Expressions;
 
 namespace Ksu.Market.Data.Repositories
 {
@@ -16,10 +15,12 @@ namespace Ksu.Market.Data.Repositories
 			_context = context;
 			_logger = logger;
 		}
+
 		public ReviewRepository(IAppDbContext context)
 		{
 			_context = context;
 		}
+
 		public async Task<Review> Create(Review entity, CancellationToken canecllationToken = default)
 		{
 			var entry = await _context.Reviews.AddAsync(entity, canecllationToken)

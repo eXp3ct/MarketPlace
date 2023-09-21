@@ -1,12 +1,6 @@
-﻿using Ksu.Market.Data.Contexts;
-using Ksu.Market.Data.Interfaces;
+﻿using Ksu.Market.Data.Interfaces;
 using Ksu.Market.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Data.Repositories
 {
@@ -21,7 +15,7 @@ namespace Ksu.Market.Data.Repositories
 
 		public async Task<Product> Create(Product entity, CancellationToken canecllationToken = default)
 		{
-			var entry = await _context.Products.AddAsync(entity, canecllationToken) 
+			var entry = await _context.Products.AddAsync(entity, canecllationToken)
 				?? throw new ArgumentException("Exception occured while adding entity to database");
 
 			return entry.Entity;
@@ -36,6 +30,7 @@ namespace Ksu.Market.Data.Repositories
 
 			return entry.Entity;
 		}
+
 		public async Task<Product> GetByIdAsync(Guid id, CancellationToken canecllationToken = default)
 		{
 			var entity = await _context.Products
@@ -102,7 +97,5 @@ namespace Ksu.Market.Data.Repositories
 			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
-
-		
 	}
 }

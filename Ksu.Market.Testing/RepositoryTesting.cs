@@ -4,11 +4,6 @@ using Ksu.Market.Data.Repositories;
 using Ksu.Market.Domain.Enums;
 using Ksu.Market.Domain.Models;
 using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Testing
 {
@@ -16,8 +11,8 @@ namespace Ksu.Market.Testing
 	{
 		private readonly TestServer _server;
 
-        public RepositoryTesting()
-        {
+		public RepositoryTesting()
+		{
 			_server = new TestServer(Program.CreateHostBuilder(Array.Empty<string>()).Build().Services);
 		}
 
@@ -137,5 +132,5 @@ namespace Ksu.Market.Testing
 			Assert.Equal(cId, deleted.Categories.First().Id);
 			Assert.Equal(cId1, deleted.Categories.Last().Id);
 		}
-    }
+	}
 }

@@ -1,11 +1,10 @@
-
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
 namespace Ksu.Market.Api
 {
 	/// <summary>
-	/// 
+	///
 	/// </summary>
 	public class Program
 	{

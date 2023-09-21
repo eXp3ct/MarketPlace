@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ksu.Market.Domain.Dtos
+﻿namespace Ksu.Market.Domain.Dtos
 {
 	public class UpdateProductDto
 	{

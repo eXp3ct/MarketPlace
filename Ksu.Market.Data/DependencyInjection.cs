@@ -2,15 +2,9 @@
 using Ksu.Market.Data.Interfaces;
 using Ksu.Market.Data.Repositories;
 using Ksu.Market.Data.UnitOfWorks;
-using Ksu.Market.Domain.Interfaces;
 using Ksu.Market.Domain.Models;
 using Ksu.Market.Domain.Results;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Data
 {

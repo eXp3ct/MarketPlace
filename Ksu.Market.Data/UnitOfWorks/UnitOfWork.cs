@@ -2,11 +2,6 @@
 using Ksu.Market.Data.Repositories;
 using Ksu.Market.Domain.Models;
 using Ksu.Market.Domain.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Data.UnitOfWorks
 {
@@ -16,6 +11,7 @@ namespace Ksu.Market.Data.UnitOfWorks
 		private IRepository _productRepository;
 		private IRepository<OperationResult> _operationResultRepository;
 		private IRepository<Review> _reviewRepository;
+
 		public IRepository ProductRepository
 		{
 			get
@@ -25,6 +21,7 @@ namespace Ksu.Market.Data.UnitOfWorks
 				return _productRepository;
 			}
 		}
+
 		public IRepository<OperationResult> OperationResultRepository
 		{
 			get
@@ -45,9 +42,9 @@ namespace Ksu.Market.Data.UnitOfWorks
 			}
 		}
 
-		public UnitOfWork(IAppDbContext context, 
-			IRepository productRepository, 
-			IRepository<OperationResult> operationResultRepository, 
+		public UnitOfWork(IAppDbContext context,
+			IRepository productRepository,
+			IRepository<OperationResult> operationResultRepository,
 			IRepository<Review> reviewRepository)
 		{
 			_context = context;

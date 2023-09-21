@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using Ksu.Market.Data.UnitOfWorks;
-using Ksu.Market.Domain.Contracts;
-using Ksu.Market.Domain.Dtos;
-using Ksu.Market.Domain.Models;
-using Ksu.Market.Domain.Results;
+﻿using Ksu.Market.Domain.Contracts;
 using Ksu.Market.Infrastructure.Commands.Consuming.AddProduct;
 using MassTransit;
 using MediatR;

@@ -25,10 +25,9 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.AddReview
 			var reviewsForProduct = (await _unitOfWork.ReviewRepository
 				.GetListAsync(1, 1000, cancellationToken)).Where(x => x.ProductId == review.ProductId).ToList();
 
-
 			// Пересчитываем средний рейтинг для продукта
 			var averageRating = default(float);
-			if(reviewsForProduct.Any())
+			if (reviewsForProduct.Any())
 			{
 				averageRating = reviewsForProduct.Average(r => r.Rating);
 			}

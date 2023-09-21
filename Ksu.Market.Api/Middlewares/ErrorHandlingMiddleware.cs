@@ -1,11 +1,7 @@
 ﻿using FluentValidation;
 using Ksu.Market.Data.UnitOfWorks;
 using Ksu.Market.Domain.Results;
-using Newtonsoft.Json;
 using System.Net;
-using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Ksu.Market.Api.Middlewares
 {
@@ -55,7 +51,6 @@ namespace Ksu.Market.Api.Middlewares
 
 				context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
-				
 				await context.Response.WriteAsJsonAsync(result);
 			}
 		}

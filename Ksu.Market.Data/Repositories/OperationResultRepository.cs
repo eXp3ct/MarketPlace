@@ -1,11 +1,6 @@
 ﻿using Ksu.Market.Data.Interfaces;
 using Ksu.Market.Domain.Results;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Data.Repositories
 {

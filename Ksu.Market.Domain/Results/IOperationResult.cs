@@ -1,10 +1,5 @@
 ﻿using Ksu.Market.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Domain.Results
 {
@@ -19,6 +14,7 @@ namespace Ksu.Market.Domain.Results
 	{
 		[NotMapped]
 		public object Data { get; set; }
+
 		public Guid Id { get; set; }
 		public bool IsSuccess { get; set; }
 		public DateTime DateTime { get; set; }
@@ -30,9 +26,9 @@ namespace Ksu.Market.Domain.Results
 			IsSuccess = isSuccess;
 			DateTime = DateTime.UtcNow;
 		}
-        public OperationResult()
-        {
-            
-        }
-    }
+
+		public OperationResult()
+		{
+		}
+	}
 }

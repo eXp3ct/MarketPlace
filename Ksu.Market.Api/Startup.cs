@@ -7,11 +7,12 @@ using MassTransit;
 namespace Ksu.Market.Api
 {
 	/// <summary>
-	/// Конфигурация 
+	/// Конфигурация
 	/// </summary>
 	public class Startup
 	{
 		private readonly IConfiguration _configuration;
+
 		/// <summary>
 		/// Внедрение зависимостей
 		/// </summary>
@@ -20,6 +21,7 @@ namespace Ksu.Market.Api
 		{
 			_configuration = configuration;
 		}
+
 		/// <summary>
 		/// Конфигурация приложения
 		/// </summary>
@@ -33,7 +35,7 @@ namespace Ksu.Market.Api
 				app.UseSwaggerUI();
 			}
 			app.UseMiddleware<ErrorHandlingMiddleware>();
-			
+
 			app.UseRouting();
 			app.UseAuthorization();
 			app.UseEndpoints(endpoints =>
@@ -41,6 +43,7 @@ namespace Ksu.Market.Api
 				endpoints.MapControllers();
 			});
 		}
+
 		/// <summary>
 		/// Регистрация сервисов
 		/// </summary>

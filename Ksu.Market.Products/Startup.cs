@@ -17,7 +17,6 @@ namespace Ksu.Market.Products
 
 		public void Configure(IApplicationBuilder app)
 		{
-
 		}
 
 		public void ConfigureServices(IServiceCollection services)

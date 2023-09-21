@@ -10,6 +10,7 @@ namespace Ksu.Market.Infrastructure.Behavior
 	{
 		private readonly UnitOfWork _unitOfWork;
 		private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
+
 		public LoggingBehavior(UnitOfWork unitOfWork, ILogger<LoggingBehavior<TRequest, TResponse>> logger)
 		{
 			_unitOfWork = unitOfWork;

@@ -2,10 +2,7 @@ using Ksu.Market.Api;
 using Ksu.Market.Data.Contexts;
 using Ksu.Market.Domain.Enums;
 using Ksu.Market.Domain.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Ksu.Market.Testing
 {
@@ -13,13 +10,12 @@ namespace Ksu.Market.Testing
 	{
 		private readonly TestServer _server;
 
-        public DbTesting()
-        {
+		public DbTesting()
+		{
 			_server = new TestServer(Program.CreateHostBuilder(Array.Empty<string>()).Build().Services);
-			
-        }
+		}
 
-        [Fact]
+		[Fact]
 		public void AddEntityToDb_NotNull()
 		{
 			//Arrange

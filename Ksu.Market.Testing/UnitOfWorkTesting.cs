@@ -5,11 +5,6 @@ using Ksu.Market.Data.UnitOfWorks;
 using Ksu.Market.Domain.Enums;
 using Ksu.Market.Domain.Models;
 using Microsoft.AspNetCore.TestHost;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Testing
 {
@@ -17,8 +12,8 @@ namespace Ksu.Market.Testing
 	{
 		private readonly TestServer _server;
 
-        public UnitOfWorkTesting()
-        {
+		public UnitOfWorkTesting()
+		{
 			_server = new TestServer(Program.CreateHostBuilder(Array.Empty<string>()).Build().Services);
 		}
 
@@ -234,5 +229,5 @@ namespace Ksu.Market.Testing
 			Assert.Equal(productToUpdate.Price, updatedProduct.Price);
 			Assert.Equal(productToUpdate.Rating, updatedProduct.Rating);
 		}
-    }
+	}
 }
