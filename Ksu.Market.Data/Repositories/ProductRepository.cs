@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ksu.Market.Data.Repositories
 {
-	public class ProductRepository : IRepository<Product>
+	public class ProductRepository : IRepository
 	{
 		private readonly IAppDbContext _context;
 
@@ -66,8 +66,19 @@ namespace Ksu.Market.Data.Repositories
 
 			//TODO: Костыль, убрать от сюда
 			entity.DatePublished = deleted.DatePublished;
-
+			entity.Id = id;
 			var product = await Create(entity, canecllationToken);
+
+			return product;
+		}
+
+		public async Task<Product> UpdateRating(Guid id, float rating, CancellationToken cancellationToken = default)
+		{
+			var product = await GetByIdAsync(id, cancellationToken);
+
+			product.Rating = rating;
+
+			await _context.SaveChangesAsync(cancellationToken);
 
 			return product;
 		}
@@ -91,5 +102,7 @@ namespace Ksu.Market.Data.Repositories
 			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
+
+		
 	}
 }

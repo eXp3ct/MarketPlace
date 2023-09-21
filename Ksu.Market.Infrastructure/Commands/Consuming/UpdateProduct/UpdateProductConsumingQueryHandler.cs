@@ -25,8 +25,10 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.UpdateProduct
 		public async Task<IOperationResult> Handle(UpdateProductConsumingQuery request, CancellationToken cancellationToken)
 		{
 			var product = _mapper.Map<Product>(request.UpdateProductRequired.ProductDto);
-			product.Id = request.UpdateProductRequired.Id;
-			
+
+			var existingProduct = await _unitOfWork.ProductRepository.GetByIdAsync(request.UpdateProductRequired.Id, cancellationToken);
+			product.Rating = existingProduct.Rating;
+
 			var updated = await _unitOfWork.ProductRepository.Update(request.UpdateProductRequired.Id, product, cancellationToken);
 			await _unitOfWork.SaveChangesAsync(cancellationToken);
 			return new OperationResult(updated, true);

@@ -28,7 +28,8 @@ namespace Ksu.Market.Testing
 			var context = new AppDbContext();
 			var repo = new ProductRepository(context);
 			var logs = new OperationResultRepository(context);
-			var unit = new UnitOfWork(context, repo, logs);
+			var review = new ReviewRepository(context);
+			var unit = new UnitOfWork(context, repo, logs, review);
 
 			var pId = Guid.NewGuid();
 			var fId = Guid.NewGuid();
@@ -88,7 +89,8 @@ namespace Ksu.Market.Testing
 			var context = new AppDbContext();
 			var repo = new ProductRepository(context);
 			var logs = new OperationResultRepository(context);
-			var unit = new UnitOfWork(context, repo, logs);
+			var review = new ReviewRepository(context);
+			var unit = new UnitOfWork(context, repo, logs, review);
 
 			var pId = Guid.NewGuid();
 			var fId = Guid.NewGuid();
@@ -148,7 +150,8 @@ namespace Ksu.Market.Testing
 			var context = new AppDbContext();
 			var repo = new ProductRepository(context);
 			var logs = new OperationResultRepository(context);
-			var unit = new UnitOfWork(context, repo, logs);
+			var review = new ReviewRepository(context);
+			var unit = new UnitOfWork(context, repo, logs, review);
 
 			var pId = Guid.NewGuid();
 			var fId = Guid.NewGuid();

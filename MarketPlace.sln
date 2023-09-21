@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Api", "Ksu.Market.Api\Ksu.Market.Api.csproj", "{CC5E3315-8129-42B1-9F95-F6F0F3B76235}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Api", "Ksu.Market.Api\Ksu.Market.Api.csproj", "{CC5E3315-8129-42B1-9F95-F6F0F3B76235}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{87396331-8858-4F72-986A-05319EB67F8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Data", "Ksu.Market.Data\Ksu.Market.Data.csproj", "{B2C98C6D-8A31-4C80-9C4D-01B0987DADE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Data", "Ksu.Market.Data\Ksu.Market.Data.csproj", "{B2C98C6D-8A31-4C80-9C4D-01B0987DADE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Domain", "Ksu.Market.Domain\Ksu.Market.Domain.csproj", "{77C279F5-46B2-4379-A3AF-464194F63AF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Domain", "Ksu.Market.Domain\Ksu.Market.Domain.csproj", "{77C279F5-46B2-4379-A3AF-464194F63AF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Testing", "Ksu.Market.Testing\Ksu.Market.Testing.csproj", "{A36DB529-62F2-47AB-9E0D-5FCA6D388317}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Testing", "Ksu.Market.Testing\Ksu.Market.Testing.csproj", "{A36DB529-62F2-47AB-9E0D-5FCA6D388317}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Products", "Ksu.Market.Products\Ksu.Market.Products.csproj", "{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Products", "Ksu.Market.Products\Ksu.Market.Products.csproj", "{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Infrastructure", "Ksu.Market.Infrastructure\Ksu.Market.Infrastructure.csproj", "{26209850-41AE-4989-8998-B2C38C4E23EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Infrastructure", "Ksu.Market.Infrastructure\Ksu.Market.Infrastructure.csproj", "{26209850-41AE-4989-8998-B2C38C4E23EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Reviews", "Ksu.Market.Reviews\Ksu.Market.Reviews.csproj", "{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{26209850-41AE-4989-8998-B2C38C4E23EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26209850-41AE-4989-8998-B2C38C4E23EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26209850-41AE-4989-8998-B2C38C4E23EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

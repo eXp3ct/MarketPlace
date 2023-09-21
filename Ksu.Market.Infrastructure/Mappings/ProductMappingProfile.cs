@@ -24,7 +24,9 @@ namespace Ksu.Market.Infrastructure.Mappings
 
             CreateMap<UpdateProductDto, Product>()
                 .ForMember(p => p.DateChanged, 
-                    opt => opt.MapFrom(x => DateTime.UtcNow));
+                    opt => opt.MapFrom(x => DateTime.UtcNow))
+                .ForMember(p => p.Rating,
+                    opt => opt.Ignore());
         }
     }
 }

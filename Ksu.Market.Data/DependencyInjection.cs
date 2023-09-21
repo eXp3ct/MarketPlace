@@ -20,8 +20,9 @@ namespace Ksu.Market.Data
 		{
 			services.AddDbContext<AppDbContext>();
 			services.AddScoped<IAppDbContext, AppDbContext>();
-			services.AddScoped<IRepository<Product>, ProductRepository>();
+			services.AddScoped<IRepository, ProductRepository>();
 			services.AddScoped<IRepository<OperationResult>, OperationResultRepository>();
+			services.AddScoped<IRepository<Review>, ReviewRepository>();
 			services.AddScoped<UnitOfWork>();
 		}
 	}

@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "ksu.market.api": "StartDebugging",
-        "ksu.market.products": "StartDebugging"
+        "ksu.market.products": "StartDebugging",
+        "ksu.market.reviews": "StartDebugging"
       }
     }
   }

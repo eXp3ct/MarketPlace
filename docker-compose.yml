@@ -53,6 +53,18 @@ services:
     networks:
       - network
 
+  ksu.market.reviews:
+    container_name: market-reviews
+    image: ${DOCKER_REGISTRY-}ksumarketreviews
+    build:
+      context: .
+      dockerfile: Ksu.Market.Reviews/Dockerfile
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - network
+
 networks:
   network:
     driver: bridge
@@ -60,3 +72,4 @@ networks:
 volumes:
   postgres-data:
   rabbitmq-data:  
+

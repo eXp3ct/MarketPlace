@@ -3,6 +3,7 @@ using System;
 using Ksu.Market.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ksu.Market.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230921123237_EntityReviewChanged")]
+    partial class EntityReviewChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,10 +128,9 @@ namespace Ksu.Market.Data.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
-                    b.Property<float>("Rating")
-                        .HasColumnType("real");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Reviews");
                 });
@@ -162,6 +164,17 @@ namespace Ksu.Market.Data.Migrations
                     b.HasOne("Ksu.Market.Domain.Models.Product", null)
                         .WithMany("Features")
                         .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("Ksu.Market.Domain.Models.Review", b =>
+                {
+                    b.HasOne("Ksu.Market.Domain.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Ksu.Market.Domain.Models.Product", b =>

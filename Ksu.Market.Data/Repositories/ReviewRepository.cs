@@ -2,6 +2,7 @@
 using Ksu.Market.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Linq.Expressions;
 
 namespace Ksu.Market.Data.Repositories
 {
@@ -40,7 +41,6 @@ namespace Ksu.Market.Data.Repositories
 		public async Task<Review> GetByIdAsync(Guid id, CancellationToken canecllationToken = default)
 		{
 			var entity = await _context.Reviews
-											.Include(x => x.Product)
 											.FirstOrDefaultAsync(p => p.Id == id, canecllationToken)
 											?? throw new ArgumentException();
 			return entity;
@@ -49,7 +49,6 @@ namespace Ksu.Market.Data.Repositories
 		public async Task<IEnumerable<Review>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default)
 		{
 			var list = await _context.Reviews
-										.Include(x => x.Product)
 										.Skip((page - 1) * pageSize)
 										.Take(pageSize)
 										.ToListAsync(canecllationToken);
@@ -61,7 +60,7 @@ namespace Ksu.Market.Data.Repositories
 			var deleted = await Delete(id, canecllationToken);
 
 			entity.DateCreated = deleted.DateCreated;
-
+			entity.Id = id;
 			var review = await Create(entity, canecllationToken);
 
 			return review;

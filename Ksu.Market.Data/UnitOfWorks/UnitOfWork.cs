@@ -13,10 +13,10 @@ namespace Ksu.Market.Data.UnitOfWorks
 	public class UnitOfWork : IDisposable
 	{
 		private readonly IAppDbContext _context;
-		private IRepository<Product> _productRepository;
+		private IRepository _productRepository;
 		private IRepository<OperationResult> _operationResultRepository;
 		private IRepository<Review> _reviewRepository;
-		public IRepository<Product> ProductRepository
+		public IRepository ProductRepository
 		{
 			get
 			{
@@ -46,7 +46,7 @@ namespace Ksu.Market.Data.UnitOfWorks
 		}
 
 		public UnitOfWork(IAppDbContext context, 
-			IRepository<Product> productRepository, 
+			IRepository productRepository, 
 			IRepository<OperationResult> operationResultRepository, 
 			IRepository<Review> reviewRepository)
 		{

@@ -1,7 +1,9 @@
 ﻿using Ksu.Market.Domain.Interfaces;
+using Ksu.Market.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,4 +18,9 @@ namespace Ksu.Market.Data.Interfaces
 		public Task<TEntity> Update(Guid id, TEntity entity, CancellationToken canecllationToken = default);
 		public Task<TEntity> Delete(Guid id, CancellationToken canecllationToken = default);
 	}
+
+	public interface IRepository : IRepository<Product>
+	{
+		public Task<Product> UpdateRating(Guid id, float rating, CancellationToken cancellationToken  = default);
+	} 
 }
