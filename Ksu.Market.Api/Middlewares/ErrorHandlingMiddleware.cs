@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Ksu.Market.Data.UnitOfWorks;
 using Ksu.Market.Domain.Results;
+using MassTransit;
 using System.Net;
 
 namespace Ksu.Market.Api.Middlewares
@@ -46,13 +47,34 @@ namespace Ksu.Market.Api.Middlewares
 
 				var result = new OperationResult(errors, false);
 
-				await _unitOfWork.OperationResultRepository.Create(result);
-				await _unitOfWork.SaveChangesAsync();
-
-				context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-
-				await context.Response.WriteAsJsonAsync(result);
+				await SaveToDatabase(context, result);
 			}
+			catch(ArgumentException ex)
+			{
+				var error = ex.Message;
+
+				var result = new OperationResult(error, false);
+
+				await SaveToDatabase(context, result);
+			}
+			catch(MassTransitException ex)
+			{
+				var error = ex.Message;
+
+				var result = new OperationResult(error, false);
+
+				await SaveToDatabase(context, result);
+			}
+		}
+
+		private async Task SaveToDatabase(HttpContext context, OperationResult result)
+		{
+			await _unitOfWork.OperationResultRepository.Create(result);
+			await _unitOfWork.SaveChangesAsync();
+
+			context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+
+			await context.Response.WriteAsJsonAsync(result);
 		}
 	}
 }

@@ -63,6 +63,7 @@ namespace Ksu.Market.Api.Controllers
 		/// <param name="cancellationToken">Токен отмены</param>
 		/// <returns><see cref="IOperationResult"/>Список продуктов</returns>
 		[HttpGet]
+		[Produces("application/json")]
 		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
 		[ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(IOperationResult))]
 		[ProducesErrorResponseType(typeof(IOperationResult))]
@@ -86,6 +87,7 @@ namespace Ksu.Market.Api.Controllers
 		/// <returns><see cref="IOperationResult"/>Продукт</returns>
 		[HttpGet]
 		[Route("{id}")]
+		[Produces("application/json")]
 		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
 		[ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(IOperationResult))]
 		[ProducesErrorResponseType(typeof(IOperationResult))]
@@ -110,6 +112,7 @@ namespace Ksu.Market.Api.Controllers
 		/// <returns><see cref="IOperationResult"/>Обновленный продукт</returns>
 		[HttpPut]
 		[Route("{id}")]
+		[Produces("application/json")]
 		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
 		[ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(IOperationResult))]
 		[ProducesErrorResponseType(typeof(IOperationResult))]
@@ -134,6 +137,7 @@ namespace Ksu.Market.Api.Controllers
 		/// <returns><see cref="IOperationResult"/>Удаленный продукт</returns>
 		[HttpDelete]
 		[Route("{id}")]
+		[Produces("application/json")]
 		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
 		[ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(IOperationResult))]
 		[ProducesErrorResponseType(typeof(IOperationResult))]
@@ -157,6 +161,7 @@ namespace Ksu.Market.Api.Controllers
 		/// <param name="cancellationToken">Токен отмены</param>
 		/// <returns><see cref="IOperationResult"/>Удаленные продукты</returns>
 		[HttpDelete]
+		[Produces("application/json")]
 		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IOperationResult))]
 		[ProducesResponseType((int)HttpStatusCode.NotFound, Type = typeof(IOperationResult))]
 		[ProducesErrorResponseType(typeof(IOperationResult))]

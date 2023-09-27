@@ -42,17 +42,16 @@ namespace Ksu.Market.Data.Repositories
 			return entity;
 		}
 
-		public async Task<IEnumerable<Product>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default)
+		public Task<IQueryable<Product>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default)
 		{
-			var list = await _context.Products
-											.Include(x => x.Categories)
-											.Include(x => x.Features)
-											.Skip((page - 1) * pageSize)
-											.Take(pageSize)
-											.ToListAsync(canecllationToken)
+			var list = _context.Products
+										.Include(x => x.Categories)
+										.Include(x => x.Features)
+										.Skip((page - 1) * pageSize)
+										.Take(pageSize)
 										?? throw new ArgumentException("Exception occured while getting list from database");
 
-			return list;
+			return Task.FromResult(list);
 		}
 
 		public async Task<Product> Update(Guid id, Product entity, CancellationToken canecllationToken = default)

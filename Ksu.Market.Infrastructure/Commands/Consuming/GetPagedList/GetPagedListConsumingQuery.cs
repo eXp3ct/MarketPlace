@@ -6,9 +6,9 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.GetPagedList
 {
 	public class GetPagedListConsumingQuery : IRequest<IOperationResult>
 	{
-		public IGetPagedListRequired Query { get; set; }
+		public IGetProductPagedListRequired Query { get; set; }
 
-		public GetPagedListConsumingQuery(IGetPagedListRequired query)
+		public GetPagedListConsumingQuery(IGetProductPagedListRequired query)
 		{
 			Query = query;
 		}

@@ -40,14 +40,13 @@ namespace Ksu.Market.Data.Repositories
 			return entity;
 		}
 
-		public async Task<IEnumerable<OperationResult>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default)
+		public Task<IQueryable<OperationResult>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default)
 		{
-			var list = await _context.OperationResults
+			var list = _context.OperationResults
 												.Skip((page - 1) * pageSize)
-												.Take(pageSize)
-												.ToListAsync(canecllationToken);
+												.Take(pageSize);
 
-			return list;
+			return Task.FromResult(list);
 		}
 
 		public async Task<OperationResult> Update(Guid id, OperationResult entity, CancellationToken canecllationToken = default)

@@ -7,7 +7,7 @@ namespace Ksu.Market.Data.Interfaces
 	{
 		public Task<TEntity> GetByIdAsync(Guid id, CancellationToken canecllationToken = default);
 
-		public Task<IEnumerable<TEntity>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default);
+		public Task<IQueryable<TEntity>> GetListAsync(int page, int pageSize, CancellationToken canecllationToken = default);
 
 		public Task<TEntity> Create(TEntity entity, CancellationToken canecllationToken = default);
 

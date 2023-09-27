@@ -9,7 +9,7 @@ namespace Ksu.Market.Infrastructure.Validation.DtoValidation
 		{
 			RuleFor(x => x.Author).NotEmpty().NotNull();
 			RuleFor(x => x.Header).NotEmpty().NotNull();
-			RuleFor(x => x.Rating).NotEmpty().NotNull().GreaterThan(0).LessThan(5);
+			RuleFor(x => x.Rating).NotEmpty().NotNull().GreaterThanOrEqualTo(1).LessThanOrEqualTo(5);
 		}
 	}
 }

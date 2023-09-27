@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Ksu.Market.Products.Consumers
 {
-	public class GetPagedListRequiredConsumer : IConsumer<IGetPagedListRequired>
+	public class GetPagedListRequiredConsumer : IConsumer<IGetProductPagedListRequired>
 	{
 		private readonly IMediator _mediator;
 
@@ -14,7 +14,7 @@ namespace Ksu.Market.Products.Consumers
 			_mediator = mediator;
 		}
 
-		public async Task Consume(ConsumeContext<IGetPagedListRequired> context)
+		public async Task Consume(ConsumeContext<IGetProductPagedListRequired> context)
 		{
 			var query = new GetPagedListConsumingQuery(context.Message);
 

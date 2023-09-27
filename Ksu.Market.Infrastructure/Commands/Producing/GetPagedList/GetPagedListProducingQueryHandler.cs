@@ -16,7 +16,7 @@ namespace Ksu.Market.Infrastructure.Commands.Producing.GetPagedList
 
 		public async Task<IOperationResult> Handle(GetPagedListProducingQuery request, CancellationToken cancellationToken)
 		{
-			var result = await _bus.Request<IGetPagedListRequired, IOperationResult>(new
+			var result = await _bus.Request<IGetProductPagedListRequired, IOperationResult>(new
 			{
 				Page = request.Page,
 				PageSize = request.PageSize,
