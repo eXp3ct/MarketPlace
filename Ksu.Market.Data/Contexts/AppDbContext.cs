@@ -20,10 +20,10 @@ namespace Ksu.Market.Data.Contexts
 		{
 		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			var conntextionString = "Host=postgres;Port=5432;Database=postgres;Username=root;Password=root;";
-			optionsBuilder.UseNpgsql(conntextionString);
-		}
+		//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		//{
+		//	var conntextionString = "Host=localhost;Port=5432;Database=postgres;Username=root;Password=root;";
+		//	optionsBuilder.UseNpgsql(conntextionString);
+		//}
 	}
 }

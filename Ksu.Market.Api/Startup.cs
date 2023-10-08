@@ -55,7 +55,7 @@ namespace Ksu.Market.Api
 			services.AddControllers();
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();
-			services.AddPersistance();
+			services.AddPersistance(_configuration);
 			services.AddInfrastructure();
 			SwaggerOptions.Configure(services);
 			services.AddMassTransit(cfg =>
