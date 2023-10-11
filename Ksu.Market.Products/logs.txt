@@ -1,0 +1,165 @@
+[19:59:46 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[19:59:46 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[19:59:46 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[19:59:46 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[19:59:46 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:59:49 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[19:59:57 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[19:59:57 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[19:59:57 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (40ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+LIMIT @__p_1 OFFSET @__p_0
+
+[19:59:57 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-11 of type Product from database
+
+[19:59:57 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:01:39 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:01:41 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:01:47 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:01:47 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:01:47 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (49ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:01:47 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-11 of type Product from database
+
+[20:01:47 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:01:57 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[20:01:57 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get Product by id "386ac9bd-c0bb-41ed-b66d-37742cc9ae93" from database
+
+[20:01:57 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:02:23 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (15ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[20:02:23 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get Product by id "386ac9bd-c0bb-41ed-b66d-37742cc9ae93" from database
+
+[20:02:23 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (36ms) [Parameters=[@p4='?' (DbType = Guid), @p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?' (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Products" SET "DateChanged" = @p0, "Description" = @p1, "Name" = @p2, "Price" = @p3
+WHERE "Id" = @p4;
+
+[20:02:23 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:02:34 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[20:02:34 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get Product by id "386ac9bd-c0bb-41ed-b66d-37742cc9ae93" from database
+
+[20:02:34 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:02:50 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[20:02:50 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get Product by id "386ac9bd-c0bb-41ed-b66d-37742cc9ae93" from database
+
+[20:02:50 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:02:54 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (17ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:02:54 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-11 of type Product from database
+
+[20:02:54 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+

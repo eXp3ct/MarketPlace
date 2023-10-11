@@ -1,0 +1,324 @@
+[19:59:48 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[19:59:48 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:59:48 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:59:48 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:59:48 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:59:48 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[19:59:48 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 206.7526ms
+
+[19:59:49 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[19:59:49 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 215.2960ms
+
+[19:59:54 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - -
+
+[19:59:54 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[19:59:54 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetPagedList", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPagedList(Int32, Int32, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[19:59:57 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[19:59:57 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api) in 2814.3108ms
+
+[19:59:57 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[19:59:57 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - - - 200 - application/json;+charset=utf-8 2898.2732ms
+
+[20:00:28 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Reviews?page=1&pageSize=11 - -
+
+[20:00:28 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ReviewsController.GetReviewList (Ksu.Market.Api)'
+
+[20:00:28 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetReviewList", controller = "Reviews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReviewList(Int32, Int32, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ReviewsController (Ksu.Market.Api).
+
+[20:00:30 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:00:30 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ReviewsController.GetReviewList (Ksu.Market.Api) in 2282.8101ms
+
+[20:00:30 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ReviewsController.GetReviewList (Ksu.Market.Api)'
+
+[20:00:30 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Reviews?page=1&pageSize=11 - - - 200 - application/json;+charset=utf-8 2313.1398ms
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:01:39 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:01:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:01:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 152.6516ms
+
+[20:01:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:01:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 209.2930ms
+
+[20:01:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - -
+
+[20:01:45 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[20:01:45 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetPagedList", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPagedList(Int32, Int32, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[20:01:48 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:01:48 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api) in 2481.5341ms
+
+[20:01:48 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[20:01:48 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - - - 200 - application/json;+charset=utf-8 2593.5557ms
+
+[20:01:56 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 - -
+
+[20:01:56 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[20:01:56 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductById", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductById(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[20:01:57 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:01:57 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api) in 248.9077ms
+
+[20:01:57 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[20:01:57 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 - - - 200 - application/json;+charset=utf-8 282.4898ms
+
+[20:02:22 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 PUT http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 application/json 68
+
+[20:02:22 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.UpdateProduct (Ksu.Market.Api)'
+
+[20:02:22 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UpdateProduct", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateProduct(System.Guid, Ksu.Market.Domain.Dtos.UpdateProductDto, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[20:02:23 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:02:23 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.UpdateProduct (Ksu.Market.Api) in 512.8792ms
+
+[20:02:23 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.UpdateProduct (Ksu.Market.Api)'
+
+[20:02:23 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 PUT http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 application/json 68 - 200 - application/json;+charset=utf-8 532.5264ms
+
+[20:02:34 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 - -
+
+[20:02:34 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[20:02:34 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductById", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductById(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[20:02:34 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:02:34 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api) in 45.2654ms
+
+[20:02:34 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[20:02:34 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 - - - 200 - application/json;+charset=utf-8 61.1260ms
+
+[20:02:50 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 - -
+
+[20:02:50 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[20:02:50 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductById", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductById(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[20:02:50 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:02:50 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api) in 69.4528ms
+
+[20:02:50 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[20:02:50 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products/386ac9bd-c0bb-41ed-b66d-37742cc9ae93 - - - 200 - application/json;+charset=utf-8 85.9795ms
+
+[20:02:54 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - -
+
+[20:02:54 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[20:02:54 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetPagedList", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPagedList(Int32, Int32, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[20:02:54 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:02:54 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api) in 124.9776ms
+
+[20:02:54 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[20:02:54 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - - - 200 - application/json;+charset=utf-8 140.9199ms
+
+[20:03:04 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Reviews?page=1&pageSize=11 - -
+
+[20:03:04 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ReviewsController.GetReviewList (Ksu.Market.Api)'
+
+[20:03:04 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetReviewList", controller = "Reviews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetReviewList(Int32, Int32, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ReviewsController (Ksu.Market.Api).
+
+[20:03:06 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[20:03:06 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ReviewsController.GetReviewList (Ksu.Market.Api) in 2136.153ms
+
+[20:03:06 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ReviewsController.GetReviewList (Ksu.Market.Api)'
+
+[20:03:06 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Reviews?page=1&pageSize=11 - - - 200 - application/json;+charset=utf-8 2152.6470ms
+
+[20:03:39 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/Reviews application/json 130
+
+[20:03:39 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ReviewsController.CreateReview (Ksu.Market.Api)'
+
+[20:03:39 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "CreateReview", controller = "Reviews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateReview(Ksu.Market.Domain.Dtos.ReviewDto, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ReviewsController (Ksu.Market.Api).
+
+[20:03:39 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ReviewsController.CreateReview (Ksu.Market.Api) in 87.0332ms
+
+[20:03:39 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ReviewsController.CreateReview (Ksu.Market.Api)'
+
+[20:03:39 Error] Ksu.Market.Api.Middlewares.ErrorHandlingMiddleware
+Operation result is: Ksu.Market.Domain.Results.OperationResult
+FluentValidation.ValidationException: Validation failed: 
+ -- ReviewDto.Rating: 'Rating' must not be empty. Severity: Error
+ -- ReviewDto.Rating: 'Rating' must be greater than or equal to '1'. Severity: Error
+   at Ksu.Market.Infrastructure.Behavior.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Behavior\ValidationBehavior.cs:line 27
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_1.<Handle>b__2()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Ksu.Market.Api.Controllers.ReviewsController.CreateReview(ReviewDto reviewDto, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Api\Controllers\ReviewsController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Ksu.Market.Api.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Api\Middlewares\ErrorHandlingMiddleware.cs:line 35
+
+[20:03:39 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/Reviews application/json 130 - 400 - application/json;+charset=utf-8 154.7417ms
+
+[20:03:48 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/Reviews application/json 130
+
+[20:03:48 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ReviewsController.CreateReview (Ksu.Market.Api)'
+
+[20:03:48 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "CreateReview", controller = "Reviews"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateReview(Ksu.Market.Domain.Dtos.ReviewDto, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ReviewsController (Ksu.Market.Api).
+
+[20:03:55 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ReviewsController.CreateReview (Ksu.Market.Api) in 6709.8338ms
+
+[20:03:55 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ReviewsController.CreateReview (Ksu.Market.Api)'
+
+[20:03:55 Error] Ksu.Market.Api.Middlewares.ErrorHandlingMiddleware
+Operation result is: Ksu.Market.Domain.Results.OperationResult
+MassTransit.RequestFaultException: The Ksu.Market.Domain.Contracts.Reviews.IReviewCreated request faulted: Value cannot be null. (Parameter 'Failed to find entity Review in database, doesn't exists')
+   at MassTransit.Clients.ResponseHandlerConnectHandle`1.GetTask() in /_/src/MassTransit/Clients/ResponseHandlerConnectHandle.cs:line 55
+   at MassTransit.RequestExtensions.Request[TRequest,TResponse](IBus bus, TRequest message, CancellationToken cancellationToken, RequestTimeout timeout, Action`1 callback) in /_/src/MassTransit/RequestExtensions.cs:line 87
+   at Ksu.Market.Infrastructure.Commands.Producing.AddReview.AddReviewProducingQueryHandler.Handle(AddReviewProducingQuery request, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Commands\Producing\AddReview\AddReviewProducingQueryHandler.cs:line 19
+   at Ksu.Market.Infrastructure.Behavior.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Behavior\LoggingBehavior.cs:line 19
+   at Ksu.Market.Api.Controllers.ReviewsController.CreateReview(ReviewDto reviewDto, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Api\Controllers\ReviewsController.cs:line 47
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Ksu.Market.Api.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Api\Middlewares\ErrorHandlingMiddleware.cs:line 35
+
+[20:03:55 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/Reviews application/json 130 - 400 - application/json;+charset=utf-8 6769.9310ms
+
