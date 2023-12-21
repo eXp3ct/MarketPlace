@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Ksu.Market.Data.UnitOfWorks;
+using Ksu.Market.Data.Interfaces;
 using Ksu.Market.Domain.Models;
 using Ksu.Market.Domain.Results;
 using MediatR;
@@ -9,24 +9,23 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.UpdateProduct
 	public class UpdateProductConsumingQueryHandler : IRequestHandler<UpdateProductConsumingQuery, IOperationResult>
 	{
 		private readonly IMapper _mapper;
-		private readonly UnitOfWork _unitOfWork;
+		private readonly IRepository<Product> _repository;
 
-		public UpdateProductConsumingQueryHandler(IMapper mapper, UnitOfWork unitOfWork)
+		public UpdateProductConsumingQueryHandler(IMapper mapper, IRepository<Product> repository)
 		{
 			_mapper = mapper;
-			_unitOfWork = unitOfWork;
+			_repository = repository;
 		}
 
 		public async Task<IOperationResult> Handle(UpdateProductConsumingQuery request, CancellationToken cancellationToken)
 		{
-			var product = _mapper.Map<Product>(request.UpdateProductRequired.ProductDto);
+			var existingProduct = await _repository.GetByIdAsync(request.UpdateProductRequired.Id, cancellationToken);
+			var product = _mapper.Map(request.UpdateProductRequired.ProductDto, existingProduct);
 
-			var existingProduct = await _unitOfWork.ProductRepository.GetByIdAsync(request.UpdateProductRequired.Id, cancellationToken);
 			product.Rating = existingProduct.Rating;
 
-			var updated = await _unitOfWork.ProductRepository.Update(request.UpdateProductRequired.Id, product, cancellationToken);
-			await _unitOfWork.SaveChangesAsync(cancellationToken);
-			return new OperationResult(updated, true);
+			await _repository.SaveChangesAsync(cancellationToken);
+			return new OperationResult(product, true);
 		}
 	}
 }

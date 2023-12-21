@@ -21,7 +21,7 @@ namespace Ksu.Market.Reviews
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddPersistance();
+			services.AddPersistance(_configuration);
 			services.AddInfrastructure();
 			services.AddMassTransit(cfg =>
 			{

@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Ksu.Market.Data.UnitOfWorks;
 using Ksu.Market.Domain.Results;
 using MassTransit;
 using System.Net;
@@ -11,15 +10,15 @@ namespace Ksu.Market.Api.Middlewares
 	/// </summary>
 	public class ErrorHandlingMiddleware : IMiddleware
 	{
-		private readonly UnitOfWork _unitOfWork;
+		private readonly ILogger<ErrorHandlingMiddleware> _logger;
 
 		/// <summary>
 		/// Внедрение зависимостей
 		/// </summary>
-		/// <param name="unitOfWork"></param>
-		public ErrorHandlingMiddleware(UnitOfWork unitOfWork)
+		/// <param name="logger"></param>
+		public ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger)
 		{
-			_unitOfWork = unitOfWork;
+			_logger = logger;
 		}
 
 		/// <summary>
@@ -47,30 +46,29 @@ namespace Ksu.Market.Api.Middlewares
 
 				var result = new OperationResult(errors, false);
 
-				await SaveToDatabase(context, result);
+				await LogToFile(context, result, ex);
 			}
-			catch(ArgumentException ex)
+			catch (ArgumentException ex)
 			{
 				var error = ex.Message;
 
 				var result = new OperationResult(error, false);
 
-				await SaveToDatabase(context, result);
+				await LogToFile(context, result, ex);
 			}
-			catch(MassTransitException ex)
+			catch (MassTransitException ex)
 			{
 				var error = ex.Message;
 
 				var result = new OperationResult(error, false);
 
-				await SaveToDatabase(context, result);
+				await LogToFile(context, result, ex);
 			}
 		}
 
-		private async Task SaveToDatabase(HttpContext context, OperationResult result)
+		private async Task LogToFile(HttpContext context, OperationResult result, Exception exception)
 		{
-			await _unitOfWork.OperationResultRepository.Create(result);
-			await _unitOfWork.SaveChangesAsync();
+			_logger.LogError(exception, "Operation result is: {result}", result);
 
 			context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 

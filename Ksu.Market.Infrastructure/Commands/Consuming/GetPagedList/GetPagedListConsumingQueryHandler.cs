@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Ksu.Market.Data.UnitOfWorks;
+using Ksu.Market.Data.Interfaces;
+using Ksu.Market.Domain.Models;
 using Ksu.Market.Domain.Results;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -8,18 +9,16 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.GetPagedList
 {
 	public class GetPagedListConsumingQueryHandler : IRequestHandler<GetPagedListConsumingQuery, IOperationResult>
 	{
-		private readonly UnitOfWork _unitOfWork;
-		private readonly IMapper _mapper;
+		private readonly IRepository<Product> _repository;
 
-		public GetPagedListConsumingQueryHandler(UnitOfWork unitOfWork, IMapper mapper)
+		public GetPagedListConsumingQueryHandler(IRepository<Product> repository)
 		{
-			_unitOfWork = unitOfWork;
-			_mapper = mapper;
+			_repository = repository;
 		}
 
 		public async Task<IOperationResult> Handle(GetPagedListConsumingQuery request, CancellationToken cancellationToken)
 		{
-			var products = await (await _unitOfWork.ProductRepository.GetListAsync(request.Query.Page, request.Query.PageSize, cancellationToken)).ToListAsync(cancellationToken);
+			var products = await _repository.GetListAsync(request.Query.Page, request.Query.PageSize, cancellationToken);
 
 			return new OperationResult(products, true);
 		}

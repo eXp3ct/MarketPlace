@@ -11,13 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Data", "Ksu.Mark
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Domain", "Ksu.Market.Domain\Ksu.Market.Domain.csproj", "{77C279F5-46B2-4379-A3AF-464194F63AF8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Testing", "Ksu.Market.Testing\Ksu.Market.Testing.csproj", "{A36DB529-62F2-47AB-9E0D-5FCA6D388317}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Products", "Ksu.Market.Products\Ksu.Market.Products.csproj", "{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Infrastructure", "Ksu.Market.Infrastructure\Ksu.Market.Infrastructure.csproj", "{26209850-41AE-4989-8998-B2C38C4E23EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ksu.Market.Reviews", "Ksu.Market.Reviews\Ksu.Market.Reviews.csproj", "{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ksu.Market.Reviews", "Ksu.Market.Reviews\Ksu.Market.Reviews.csproj", "{ABAF8F45-1191-4A48-BDBA-2966ECB1651A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{77C279F5-46B2-4379-A3AF-464194F63AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77C279F5-46B2-4379-A3AF-464194F63AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77C279F5-46B2-4379-A3AF-464194F63AF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A36DB529-62F2-47AB-9E0D-5FCA6D388317}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADC28FC8-2D4A-4456-ADEE-22C8E3C2438A}.Release|Any CPU.ActiveCfg = Release|Any CPU

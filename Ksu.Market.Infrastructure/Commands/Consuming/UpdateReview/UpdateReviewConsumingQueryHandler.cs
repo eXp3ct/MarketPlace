@@ -1,39 +1,35 @@
 ﻿using AutoMapper;
-using Ksu.Market.Data.UnitOfWorks;
+using Ksu.Market.Data.Interfaces;
 using Ksu.Market.Domain.Models;
 using Ksu.Market.Domain.Results;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ksu.Market.Infrastructure.Commands.Consuming.UpdateReview
 {
 	public class UpdateReviewConsumingQueryHandler : IRequestHandler<UpdateReviewConsumingQuery, IOperationResult>
 	{
-		private readonly UnitOfWork _unitOfWork;
+		private readonly IRepository<Review> _reviewRepository;
+		private readonly IProductRepository _repository;
 		private readonly IMapper _mapper;
 
-		public UpdateReviewConsumingQueryHandler(UnitOfWork unitOfWork, IMapper mapper)
+		public UpdateReviewConsumingQueryHandler(IRepository<Review> reviewRepository, IProductRepository repository, IMapper mapper)
 		{
-			_unitOfWork = unitOfWork;
+			_reviewRepository = reviewRepository;
+			_repository = repository;
 			_mapper = mapper;
 		}
 
 		public async Task<IOperationResult> Handle(UpdateReviewConsumingQuery request, CancellationToken cancellationToken)
 		{
-			var newReview = _mapper.Map<Review>(request.UpdateReview.UpdateReviewDto);
-			var oldReview = await _unitOfWork.ReviewRepository.GetByIdAsync(request.UpdateReview.Id, cancellationToken);
+			var oldReview = await _reviewRepository.GetByIdAsync(request.UpdateReview.Id, cancellationToken);
+			var newReview = _mapper.Map(request.UpdateReview.UpdateReviewDto, oldReview);
 			newReview.Author = oldReview.Author;
 			newReview.ProductId = oldReview.ProductId;
 
-			var updated = await _unitOfWork.ReviewRepository.Update(request.UpdateReview.Id, newReview, cancellationToken);
 
 			// Получаем все отзывы для данного продукта
-			var reviewsForProduct = (await _unitOfWork.ReviewRepository
-				.GetListAsync(1, 1000, cancellationToken)).Where(x => x.ProductId == updated.ProductId).ToList();
+			var reviewsForProduct = (await _reviewRepository
+				.GetListAsync(1, 1000, cancellationToken)).Where(x => x.ProductId == newReview.ProductId).ToList();
 
 			// Пересчитываем средний рейтинг для продукта
 			var averageRating = default(float);
@@ -43,18 +39,19 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.UpdateReview
 			}
 			else
 			{
-				averageRating = updated.Rating;
+				averageRating = newReview.Rating;
 			}
 			// Обновляем рейтинг продукта
-			var product = await _unitOfWork.ProductRepository.GetByIdAsync(updated.ProductId, cancellationToken);
-			product.Rating = averageRating;
+			//var product = await _repository.GetByIdAsync(newReview.ProductId, cancellationToken);
+			//product.Rating = averageRating;
 
 			// Обновляем продукт и список отзывов
-			await _unitOfWork.ProductRepository.UpdateRating(product.Id, averageRating, cancellationToken);
+			await _repository.UpdateRating(newReview.Id, averageRating, cancellationToken);
 
-			await _unitOfWork.SaveChangesAsync(cancellationToken);
+			await _repository.SaveChangesAsync(cancellationToken);
+			await _reviewRepository.SaveChangesAsync(cancellationToken);
 
-			return new OperationResult(updated, true);
+			return new OperationResult(newReview, true);
 		}
 	}
 }

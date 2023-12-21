@@ -1,4 +1,5 @@
 using Serilog;
+using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 
 namespace Ksu.Market.Products
@@ -16,9 +17,11 @@ namespace Ksu.Market.Products
 			Host.CreateDefaultBuilder(args)
 				.UseSerilog((contxt, cfg) =>
 				{
+					var outputTemplate = "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}";
 					cfg
 						.MinimumLevel.Debug()
-						.WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Code);
+						.WriteTo.Console(outputTemplate: outputTemplate, theme: AnsiConsoleTheme.Code)
+						.WriteTo.File("logs.txt", outputTemplate: outputTemplate, restrictedToMinimumLevel: LogEventLevel.Information);
 				})
 				.ConfigureWebHostDefaults(webBuilder =>
 				{

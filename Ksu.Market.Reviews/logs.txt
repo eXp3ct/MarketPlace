@@ -1,0 +1,186 @@
+[19:59:47 Information] MassTransit
+Configured endpoint delete-review-required, Consumer: Ksu.Market.Reviews.Consumers.DeleteReviewRequiredConsumer
+
+[19:59:47 Information] MassTransit
+Configured endpoint get-review-paged-list-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewPagedListRequiredConsumer
+
+[19:59:47 Information] MassTransit
+Configured endpoint get-review-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewRequiredConsumer
+
+[19:59:47 Information] MassTransit
+Configured endpoint review-created, Consumer: Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer
+
+[19:59:47 Information] MassTransit
+Configured endpoint update-review-required, Consumer: Ksu.Market.Reviews.Consumers.UpdateReviewRequiredConsumer
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:59:47 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:59:50 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:00:30 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:00:30 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:00:30 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (42ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:00:30 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-11 of type Review from database
+
+[20:00:30 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:01:39 Information] MassTransit
+Configured endpoint delete-review-required, Consumer: Ksu.Market.Reviews.Consumers.DeleteReviewRequiredConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint get-review-paged-list-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewPagedListRequiredConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint get-review-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewRequiredConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint review-created, Consumer: Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer
+
+[20:01:39 Information] MassTransit
+Configured endpoint update-review-required, Consumer: Ksu.Market.Reviews.Consumers.UpdateReviewRequiredConsumer
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:01:39 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:01:41 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:03:05 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:03:05 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:03:06 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (47ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:03:06 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-11 of type Review from database
+
+[20:03:06 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:03:48 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (4ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:03:48 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-1000 of type Review from database
+
+[20:03:48 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+
+[20:03:48 Warning] MassTransit.ReceiveTransport
+R-RETRY "rabbitmq://market-rabbitmq/review-created" "88020000-ac12-0242-1853-08dbca952ea6" MassTransit.RetryPolicies.RetryConsumeContext<Ksu.Market.Domain.Contracts.Reviews.IReviewCreated>
+System.ArgumentNullException: Value cannot be null. (Parameter 'Failed to find entity Review in database, doesn't exists')
+   at Ksu.Market.Data.Repositories.BaseRepository`1.GetByIdAsync(Guid id, CancellationToken canecllationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Data\Repositories\BaseRepository.cs:line 43
+   at Ksu.Market.Infrastructure.Commands.Consuming.AddReview.AddReviewConsumingQueryHandler.Handle(AddReviewConsumingQuery request, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Commands\Consuming\AddReview\AddReviewConsumingQueryHandler.cs:line 41
+   at Ksu.Market.Infrastructure.Behavior.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Behavior\LoggingBehavior.cs:line 19
+   at Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer.Consume(ConsumeContext`1 context) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Reviews\Consumers\ReviewCreatedConsumer.cs:line 21
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 72
+   at MassTransit.Middleware.RetryFilter`1.MassTransit.IFilter<TContext>.Send(TContext context, IPipe`1 next) in /_/src/MassTransit/Middleware/RetryFilter.cs:line 47
+
+[20:03:49 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:03:49 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-1000 of type Review from database
+
+[20:03:49 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+
+[20:03:52 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (7ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:03:52 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-1000 of type Review from database
+
+[20:03:52 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+
+[20:03:55 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:03:55 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-1000 of type Review from database
+
+[20:03:55 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT r."Id", r."Author", r."Content", r."DateChanged", r."DateCreated", r."Header", r."ProductId", r."Rating"
+FROM "Reviews" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+
+[20:03:55 Error] MassTransit.ReceiveTransport
+R-FAULT "rabbitmq://market-rabbitmq/review-created" "88020000-ac12-0242-1853-08dbca952ea6" Ksu.Market.Domain.Contracts.Reviews.IReviewCreated Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer("00:00:00.0171236")
+System.ArgumentNullException: Value cannot be null. (Parameter 'Failed to find entity Review in database, doesn't exists')
+   at Ksu.Market.Data.Repositories.BaseRepository`1.GetByIdAsync(Guid id, CancellationToken canecllationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Data\Repositories\BaseRepository.cs:line 43
+   at Ksu.Market.Infrastructure.Commands.Consuming.AddReview.AddReviewConsumingQueryHandler.Handle(AddReviewConsumingQuery request, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Commands\Consuming\AddReview\AddReviewConsumingQueryHandler.cs:line 41
+   at Ksu.Market.Infrastructure.Behavior.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Infrastructure\Behavior\LoggingBehavior.cs:line 19
+   at Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer.Consume(ConsumeContext`1 context) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Reviews\Consumers\ReviewCreatedConsumer.cs:line 21
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 72
+   at MassTransit.Middleware.RetryFilter`1.Attempt(TContext context, RetryContext`1 retryContext, IPipe`1 next) in /_/src/MassTransit/Middleware/RetryFilter.cs:line 158
+
