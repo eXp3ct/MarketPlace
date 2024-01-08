@@ -22,6 +22,7 @@ namespace Ksu.Market.Data
 
 			services.AddScoped<IRepository<Review>, BaseRepository<Review>>();
 			services.AddScoped<IRepository<Product>, ProductRepository>();
+			services.AddScoped<IRepository<ProductImage>, BaseRepository<ProductImage>>();
 			services.AddScoped<IProductRepository, ProductRepository>();
 		}
 	}

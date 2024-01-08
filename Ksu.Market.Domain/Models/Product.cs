@@ -13,5 +13,6 @@ namespace Ksu.Market.Domain.Models
 		public List<Feature>? Features { get; set; }
 		public DateTime DatePublished { get; set; }
 		public DateTime? DateChanged { get; set; }
+		public virtual List<ProductImage> Images { get; set; }
 	}
 }

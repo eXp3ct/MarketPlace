@@ -322,3 +322,821 @@ MassTransit.RequestFaultException: The Ksu.Market.Domain.Contracts.Reviews.IRevi
 [20:03:55 Information] Microsoft.AspNetCore.Hosting.Diagnostics
 Request finished HTTP/1.1 POST http://localhost:5050/api/Reviews application/json 130 - 400 - application/json;+charset=utf-8 6769.9310ms
 
+[21:29:31 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+
+[21:29:31 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+
+[21:30:28 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+
+[21:30:28 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');
+
+[21:30:28 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+
+[21:30:28 Information] Microsoft.EntityFrameworkCore.Migrations
+Applying migration '20231222183008_EntityImageAdded'.
+
+[21:30:29 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE "OperationResults";
+
+[21:30:29 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "ProductImages" (
+    "Id" uuid NOT NULL,
+    "FileName" text NOT NULL,
+    "ExtensionName" text NOT NULL,
+    "DateUploaded" timestamp with time zone NOT NULL,
+    "FilePath" text NOT NULL,
+    "ProductId" uuid NOT NULL,
+    CONSTRAINT "PK_ProductImages" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_ProductImages_Products_ProductId" FOREIGN KEY ("ProductId") REFERENCES "Products" ("Id") ON DELETE CASCADE
+);
+
+[21:30:29 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ProductImages_ProductId" ON "ProductImages" ("ProductId");
+
+[21:30:29 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231222183008_EntityImageAdded', '7.0.11');
+
+[19:55:04 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:55:04 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[19:55:04 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:55:04 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:55:04 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:55:04 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger - -
+
+[19:55:04 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger - - - 301 0 - 137.9709ms
+
+[19:55:04 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 114.8489ms
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui.css - -
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-standalone-preset.js - -
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-bundle.js - -
+
+[19:55:05 Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui.css - - - 200 144929 text/css 134.6118ms
+
+[19:55:05 Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 202.6802ms
+
+[19:55:05 Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 364.9697ms
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[19:55:05 Error] Microsoft.AspNetCore.Server.Kestrel
+Connection id "0HN034VI3LP1B", Request id "0HN034VI3LP1B:00000002": An unhandled exception was thrown by the application.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+
+[19:55:05 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 500 0 - 98.7712ms
+
+[19:55:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[19:55:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 2.3895ms
+
+[19:55:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[19:55:36 Error] Microsoft.AspNetCore.Server.Kestrel
+Connection id "0HN034VI3LP1B", Request id "0HN034VI3LP1B:00000004": An unhandled exception was thrown by the application.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+
+[19:55:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 500 0 - 25.9447ms
+
+[19:55:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/favicon-32x32.png - -
+
+[19:55:36 Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware
+Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+
+[19:55:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/favicon-32x32.png - - - 200 628 image/png 7.4506ms
+
+[19:57:32 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:57:33 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[19:57:33 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 189.8938ms
+
+[19:57:33 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[19:57:33 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 285.1407ms
+
+[19:57:46 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - -
+
+[19:57:46 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[19:57:46 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetPagedList", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPagedList(Int32, Int32, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[19:57:50 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[19:57:50 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api) in 3624.2367ms
+
+[19:57:50 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetPagedList (Ksu.Market.Api)'
+
+[19:57:50 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products?page=1&pageSize=11 - - - 200 - application/json;+charset=utf-8 3729.5220ms
+
+[19:58:03 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Products/6b81d6b1-fefd-4147-9589-37d1f3df96f9 - -
+
+[19:58:03 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[19:58:03 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductById", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductById(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ProductsController (Ksu.Market.Api).
+
+[19:58:03 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'MassTransit.DynamicInternal.Ksu.Market.Domain.Results.IOperationResult'.
+
+[19:58:03 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api) in 310.6522ms
+
+[19:58:03 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ProductsController.GetProductById (Ksu.Market.Api)'
+
+[19:58:03 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Products/6b81d6b1-fefd-4147-9589-37d1f3df96f9 - - - 200 - application/json;+charset=utf-8 348.6908ms
+
+[19:59:17 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 image/png 79835
+
+[19:59:17 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint '415 HTTP Unsupported Media Type'
+
+[19:59:17 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint '415 HTTP Unsupported Media Type'
+
+[19:59:17 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 image/png 79835 - 415 0 - 8.9619ms
+
+[20:19:01 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:19:02 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:19:02 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 182.6799ms
+
+[20:19:02 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:19:02 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 197.0853ms
+
+[20:19:11 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------050636851727823822877816 80200
+
+[20:19:11 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:19:11 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UploadImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:19:11 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api) in 3.3321ms
+
+[20:19:11 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:19:11 Error] Microsoft.AspNetCore.Server.Kestrel
+Connection id "0HN035CUE7B88", Request id "0HN035CUE7B88:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'Ksu.Market.Data.Interfaces.IRepository`1[Ksu.Market.Domain.Models.ProductImage]' while attempting to activate 'Ksu.Market.Api.Controllers.ImagesController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Ksu.Market.Api.Middlewares.ErrorHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in D:\Projects\C# Projects\MarketPlace\Ksu.Market.Api\Middlewares\ErrorHandlingMiddleware.cs:line 35
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+
+[20:19:11 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------050636851727823822877816 80200 - 500 0 - 159.5912ms
+
+[20:20:01 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:20:01 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:20:01 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 316.3929ms
+
+[20:20:02 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:20:02 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 252.6105ms
+
+[20:20:07 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------775373149938127392194702 80200
+
+[20:20:07 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:20:07 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UploadImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:20:09 Information] Ksu.Market.Data.Repositories.BaseRepository
+Created ProductImage in database
+
+[20:20:09 Error] Microsoft.EntityFrameworkCore.Database.Command
+Failed executing DbCommand (21ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ProductImages" ("Id", "DateUploaded", "ExtensionName", "FileName", "FilePath", "ProductId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+[20:20:09 Error] Microsoft.EntityFrameworkCore.Update
+An exception occurred in the database while saving changes for context type 'Ksu.Market.Data.Contexts.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.InvalidCastException: Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array/range. See the Npgsql.EnableLegacyTimestampBehavior AppContext switch to enable legacy behavior.
+   at Npgsql.Internal.TypeHandlers.DateTimeHandlers.TimestampTzHandler.ValidateAndGetLength(DateTime value, NpgsqlParameter parameter)
+   at Npgsql.Internal.TypeHandlers.DateTimeHandlers.TimestampTzHandler.ValidateObjectAndGetLength(Object value, NpgsqlLengthCache& lengthCache, NpgsqlParameter parameter)
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength()
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(TypeMapper typeMapper, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.InvalidCastException: Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone', only UTC is supported. Note that it's not possible to mix DateTimes with different Kinds in an array/range. See the Npgsql.EnableLegacyTimestampBehavior AppContext switch to enable legacy behavior.
+   at Npgsql.Internal.TypeHandlers.DateTimeHandlers.TimestampTzHandler.ValidateAndGetLength(DateTime value, NpgsqlParameter parameter)
+   at Npgsql.Internal.TypeHandlers.DateTimeHandlers.TimestampTzHandler.ValidateObjectAndGetLength(Object value, NpgsqlLengthCache& lengthCache, NpgsqlParameter parameter)
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength()
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(TypeMapper typeMapper, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+[20:20:09 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing ObjectResult, writing value of type 'System.String'.
+
+[20:20:09 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api) in 1840.7391ms
+
+[20:20:09 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:20:09 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------775373149938127392194702 80200 - 500 - text/plain;+charset=utf-8 1970.9184ms
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:20:44 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:20:44 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:20:44 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 155.0779ms
+
+[20:20:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:20:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 196.3920ms
+
+[20:20:52 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------164235160863647671359760 80200
+
+[20:20:52 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:20:52 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UploadImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:20:53 Information] Ksu.Market.Data.Repositories.BaseRepository
+Created ProductImage in database
+
+[20:20:53 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (48ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ProductImages" ("Id", "DateUploaded", "ExtensionName", "FileName", "FilePath", "ProductId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+[20:20:54 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing ObjectResult, writing value of type 'System.String'.
+
+[20:20:54 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api) in 1553.0006ms
+
+[20:20:54 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:20:54 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------164235160863647671359760 80200 - 500 - text/plain;+charset=utf-8 1688.4485ms
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:22:40 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:22:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:22:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 143.7943ms
+
+[20:22:41 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:22:41 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 275.0319ms
+
+[20:22:48 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------215254619117352100747385 80200
+
+[20:22:48 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:22:48 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UploadImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:22:49 Information] Ksu.Market.Data.Repositories.BaseRepository
+Created ProductImage in database
+
+[20:22:49 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (46ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ProductImages" ("Id", "DateUploaded", "ExtensionName", "FileName", "FilePath", "ProductId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+[20:22:49 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing ObjectResult, writing value of type 'System.String'.
+
+[20:22:49 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api) in 1559.9539ms
+
+[20:22:49 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:22:50 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------215254619117352100747385 80200 - 500 - text/plain;+charset=utf-8 1703.9600ms
+
+[20:23:37 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:23:37 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:23:37 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 160.5050ms
+
+[20:23:37 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:23:37 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 220.8015ms
+
+[20:23:41 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------663659985675389665621735 80200
+
+[20:23:41 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:23:42 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UploadImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:23:43 Information] Ksu.Market.Data.Repositories.BaseRepository
+Created ProductImage in database
+
+[20:23:43 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (47ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ProductImages" ("Id", "DateUploaded", "ExtensionName", "FileName", "FilePath", "ProductId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+[20:23:43 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing ObjectResult, writing value of type 'System.String'.
+
+[20:23:43 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api) in 1517.2937ms
+
+[20:23:43 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:23:43 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------663659985675389665621735 80200 - 500 - text/plain;+charset=utf-8 1624.6421ms
+
+[20:24:44 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:24:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:24:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 162.0983ms
+
+[20:24:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:24:45 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 194.3360ms
+
+[20:25:34 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------449062109243010537969228 80200
+
+[20:25:34 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:25:34 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "UploadImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Microsoft.AspNetCore.Http.IFormFile, System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:25:35 Information] Ksu.Market.Data.Repositories.BaseRepository
+Created ProductImage in database
+
+[20:25:36 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (51ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ProductImages" ("Id", "DateUploaded", "ExtensionName", "FileName", "FilePath", "ProductId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+[20:25:36 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'Ksu.Market.Domain.Results.OperationResult'.
+
+[20:25:36 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api) in 1927.8078ms
+
+[20:25:36 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.UploadImage (Ksu.Market.Api)'
+
+[20:25:36 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 POST http://localhost:5050/api/images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 multipart/form-data;+boundary=--------------------------449062109243010537969228 80200 - 200 - application/json;+charset=utf-8 2084.0148ms
+
+[20:30:20 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:30:20 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:30:20 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 189.9411ms
+
+[20:30:21 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:30:21 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 230.9854ms
+
+[20:30:38 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 - -
+
+[20:30:38 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImages (Ksu.Market.Api)'
+
+[20:30:38 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductImages", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductImages(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:30:39 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:30:39 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:30:40 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (51ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateUploaded", p."ExtensionName", p."FileName", p."FilePath", p."ProductId"
+FROM "ProductImages" AS p
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:30:40 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-1000 of type ProductImage from database
+
+[20:30:40 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'Ksu.Market.Domain.Results.OperationResult'.
+
+[20:30:40 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.GetProductImages (Ksu.Market.Api) in 1711.2232ms
+
+[20:30:40 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImages (Ksu.Market.Api)'
+
+[20:30:40 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 - - - 200 - application/json;+charset=utf-8 1845.9871ms
+
+[20:41:41 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:41:42 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/index.html - -
+
+[20:41:42 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/index.html - - - 200 - text/html;charset=utf-8 150.4280ms
+
+[20:41:42 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - -
+
+[20:41:42 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 225.0216ms
+
+[20:41:53 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/Images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 - -
+
+[20:41:53 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImages (Ksu.Market.Api)'
+
+[20:41:53 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductImages", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductImages(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:41:55 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:41:55 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[20:41:55 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (41ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateUploaded", p."ExtensionName", p."FileName", p."FilePath", p."ProductId"
+FROM "ProductImages" AS p
+LIMIT @__p_1 OFFSET @__p_0
+
+[20:41:55 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-1000 of type ProductImage from database
+
+[20:41:55 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing OkObjectResult, writing value of type 'Ksu.Market.Domain.Results.OperationResult'.
+
+[20:41:55 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.GetProductImages (Ksu.Market.Api) in 1800.2985ms
+
+[20:41:55 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImages (Ksu.Market.Api)'
+
+[20:41:55 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/Images?productId=6b81d6b1-fefd-4147-9589-37d1f3df96f9 - - - 200 - application/json;+charset=utf-8 1914.0029ms
+
+[20:42:24 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/images/2d0c1af2-b801-4283-8826-d098dff02a57 - -
+
+[20:42:24 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImage (Ksu.Market.Api)'
+
+[20:42:24 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductImage(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:42:25 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateUploaded", p."ExtensionName", p."FileName", p."FilePath", p."ProductId"
+FROM "ProductImages" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[20:42:25 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get ProductImage by id "2d0c1af2-b801-4283-8826-d098dff02a57" from database
+
+[20:42:25 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor
+Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+
+[20:42:25 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.GetProductImage (Ksu.Market.Api) in 161.1058ms
+
+[20:42:25 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImage (Ksu.Market.Api)'
+
+[20:42:25 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/images/2d0c1af2-b801-4283-8826-d098dff02a57 - - - 404 - application/problem+json;+charset=utf-8 192.0321ms
+
+[20:43:18 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request starting HTTP/1.1 GET http://localhost:5050/api/images/85b7be89-7300-4f02-b204-7efcc8c8667f - -
+
+[20:43:18 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executing endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImage (Ksu.Market.Api)'
+
+[20:43:18 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Route matched with {action = "GetProductImage", controller = "Images"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductImage(System.Guid, System.Threading.CancellationToken) on controller Ksu.Market.Api.Controllers.ImagesController (Ksu.Market.Api).
+
+[20:43:18 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateUploaded", p."ExtensionName", p."FileName", p."FilePath", p."ProductId"
+FROM "ProductImages" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[20:43:18 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get ProductImage by id "85b7be89-7300-4f02-b204-7efcc8c8667f" from database
+
+[20:43:18 Information] Microsoft.AspNetCore.Mvc.Infrastructure.FileStreamResultExecutor
+Executing FileStreamResult, sending file with download name '' ...
+
+[20:43:18 Information] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker
+Executed action Ksu.Market.Api.Controllers.ImagesController.GetProductImage (Ksu.Market.Api) in 140.1411ms
+
+[20:43:18 Information] Microsoft.AspNetCore.Routing.EndpointMiddleware
+Executed endpoint 'Ksu.Market.Api.Controllers.ImagesController.GetProductImage (Ksu.Market.Api)'
+
+[20:43:18 Information] Microsoft.AspNetCore.Hosting.Diagnostics
+Request finished HTTP/1.1 GET http://localhost:5050/api/images/85b7be89-7300-4f02-b204-7efcc8c8667f - - - 200 79835 image/png 168.0465ms
+

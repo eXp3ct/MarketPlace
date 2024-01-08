@@ -163,3 +163,334 @@ Get paged list p-1, s-11 of type Product from database
 [20:02:54 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
 Operation result Ksu.Market.Domain.Results.OperationResult
 
+[19:55:06 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[19:55:06 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[19:55:06 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[19:55:06 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[19:55:06 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[19:55:06 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:55:06 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:55:06 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:55:06 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:55:08 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[19:57:32 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[19:57:32 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[19:57:32 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[19:57:32 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[19:57:32 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[19:57:32 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[19:57:34 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[19:57:49 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[19:57:49 Warning] Microsoft.EntityFrameworkCore.Query
+The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+
+[19:57:50 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (50ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+LIMIT @__p_1 OFFSET @__p_0
+
+[19:57:50 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get paged list p-1, s-11 of type Product from database
+
+[19:57:50 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[19:58:03 Information] Microsoft.EntityFrameworkCore.Database.Command
+Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DateChanged", p."DatePublished", p."Description", p."Name", p."Price", p."Rating"
+FROM "Products" AS p
+WHERE p."Id" = @__id_0
+LIMIT 1
+
+[19:58:03 Information] Ksu.Market.Data.Repositories.BaseRepository
+Get Product by id "6b81d6b1-fefd-4147-9589-37d1f3df96f9" from database
+
+[19:58:03 Information] Ksu.Market.Infrastructure.Behavior.LoggingBehavior
+Operation result Ksu.Market.Domain.Results.OperationResult
+
+[20:19:01 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:19:01 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:19:01 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:19:01 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:19:01 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:19:01 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:19:03 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:20:00 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:20:00 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:20:00 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:20:00 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:20:00 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:20:01 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:20:02 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:20:44 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:20:44 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:20:44 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:20:44 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:20:44 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:20:44 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:20:46 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:22:40 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:22:40 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:22:40 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:22:40 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:22:40 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:22:40 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:22:42 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:23:36 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:23:36 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:23:36 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:23:36 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:23:36 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:23:37 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:23:38 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:24:44 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:24:44 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:24:44 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:24:44 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:24:44 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:24:44 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:24:46 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:30:19 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:30:19 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:30:19 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:30:19 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:30:19 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:30:20 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:30:22 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[20:41:40 Information] MassTransit
+Configured endpoint delete-product-required, Consumer: Ksu.Market.Products.Consumers.DeleteProductRequiredConsumer
+
+[20:41:40 Information] MassTransit
+Configured endpoint get-paged-list-required, Consumer: Ksu.Market.Products.Consumers.GetPagedListRequiredConsumer
+
+[20:41:40 Information] MassTransit
+Configured endpoint get-product-by-id-required, Consumer: Ksu.Market.Products.Consumers.GetProductByIdRequiredConsumer
+
+[20:41:40 Information] MassTransit
+Configured endpoint product-created, Consumer: Ksu.Market.Products.Consumers.ProductCreatedConsumer
+
+[20:41:40 Information] MassTransit
+Configured endpoint update-product-required, Consumer: Ksu.Market.Products.Consumers.UpdateProductRequiredConsumer
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[20:41:41 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[20:41:43 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
