@@ -1,3 +1,5 @@
+using Ksu.Market.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;

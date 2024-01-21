@@ -484,3 +484,93 @@ Content root path: /app
 [20:41:43 Information] MassTransit
 Bus started: "rabbitmq://market-rabbitmq/"
 
+[23:21:45 Information] MassTransit
+Configured endpoint delete-review-required, Consumer: Ksu.Market.Reviews.Consumers.DeleteReviewRequiredConsumer
+
+[23:21:45 Information] MassTransit
+Configured endpoint get-review-paged-list-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewPagedListRequiredConsumer
+
+[23:21:45 Information] MassTransit
+Configured endpoint get-review-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewRequiredConsumer
+
+[23:21:45 Information] MassTransit
+Configured endpoint review-created, Consumer: Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer
+
+[23:21:45 Information] MassTransit
+Configured endpoint update-review-required, Consumer: Ksu.Market.Reviews.Consumers.UpdateReviewRequiredConsumer
+
+[23:21:46 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[23:21:46 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[23:21:46 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[23:21:46 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[23:21:48 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[23:23:25 Information] MassTransit
+Configured endpoint delete-review-required, Consumer: Ksu.Market.Reviews.Consumers.DeleteReviewRequiredConsumer
+
+[23:23:25 Information] MassTransit
+Configured endpoint get-review-paged-list-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewPagedListRequiredConsumer
+
+[23:23:25 Information] MassTransit
+Configured endpoint get-review-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewRequiredConsumer
+
+[23:23:25 Information] MassTransit
+Configured endpoint review-created, Consumer: Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer
+
+[23:23:25 Information] MassTransit
+Configured endpoint update-review-required, Consumer: Ksu.Market.Reviews.Consumers.UpdateReviewRequiredConsumer
+
+[23:23:26 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[23:23:26 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[23:23:26 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[23:23:26 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[23:23:28 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
+[23:26:18 Information] MassTransit
+Configured endpoint delete-review-required, Consumer: Ksu.Market.Reviews.Consumers.DeleteReviewRequiredConsumer
+
+[23:26:18 Information] MassTransit
+Configured endpoint get-review-paged-list-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewPagedListRequiredConsumer
+
+[23:26:18 Information] MassTransit
+Configured endpoint get-review-required, Consumer: Ksu.Market.Reviews.Consumers.GetReviewRequiredConsumer
+
+[23:26:18 Information] MassTransit
+Configured endpoint review-created, Consumer: Ksu.Market.Reviews.Consumers.ReviewCreatedConsumer
+
+[23:26:18 Information] MassTransit
+Configured endpoint update-review-required, Consumer: Ksu.Market.Reviews.Consumers.UpdateReviewRequiredConsumer
+
+[23:26:19 Information] Microsoft.Hosting.Lifetime
+Now listening on: http://[::]:80
+
+[23:26:19 Information] Microsoft.Hosting.Lifetime
+Application started. Press Ctrl+C to shut down.
+
+[23:26:19 Information] Microsoft.Hosting.Lifetime
+Hosting environment: Development
+
+[23:26:19 Information] Microsoft.Hosting.Lifetime
+Content root path: /app
+
+[23:26:21 Information] MassTransit
+Bus started: "rabbitmq://market-rabbitmq/"
+
