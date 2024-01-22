@@ -22,27 +22,30 @@ namespace Ksu.Market.Infrastructure.Commands.Consuming.AddReview
 		public async Task<IOperationResult> Handle(AddReviewConsumingQuery request, CancellationToken cancellationToken)
 		{
 			var review = _mapper.Map<Review>(request.ReviewCreated);
-
-			// Получаем все отзывы для данного продукта
-			var reviewsForProduct = (await _reviewRepository
-				.GetListAsync(1, 1000, cancellationToken)).Where(x => x.ProductId == review.ProductId).ToList();
-
-			// Пересчитываем средний рейтинг для продукта
-			var averageRating = default(float);
-			if (reviewsForProduct.Any())
+			var reviews = await _reviewRepository.GetListAsync(1, 1000, cancellationToken);
+			if (reviews.Count() > 0)
 			{
-				averageRating = reviewsForProduct.Average(r => r.Rating);
-			}
-			else
-			{
-				averageRating = review.Rating;
-			}
-			// Обновляем рейтинг продукта
-			var product = await _reviewRepository.GetByIdAsync(review.ProductId, cancellationToken);
-			product.Rating = averageRating;
+				// Получаем все отзывы для данного продукта
+				var reviewsForProduct = (await _reviewRepository
+					.GetListAsync(1, 1000, cancellationToken)).Where(x => x.ProductId == review.ProductId).ToList();
 
-			// Обновляем продукт и список отзывов
-			await _productRepository.UpdateRating(product.Id, averageRating, cancellationToken);
+				// Пересчитываем средний рейтинг для продукта
+				var averageRating = default(float);
+				if (reviewsForProduct.Any())
+				{
+					averageRating = reviewsForProduct.Average(r => r.Rating);
+				}
+				else
+				{
+					averageRating = review.Rating;
+				}
+				// Обновляем рейтинг продукта
+				var product = await _reviewRepository.GetByIdAsync(review.ProductId, cancellationToken);
+				product.Rating = averageRating;
+
+				// Обновляем продукт и список отзывов
+				await _productRepository.UpdateRating(product.Id, averageRating, cancellationToken); 
+			}
 			await _reviewRepository.Create(review, cancellationToken);
 
 			await _productRepository.SaveChangesAsync(cancellationToken);
